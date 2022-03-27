@@ -1,4 +1,5 @@
 import "./Login.css";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   const onSubmit = (e) => {
@@ -23,6 +24,9 @@ const Login = () => {
           <div className="line"></div>
         </div>
         <button type="submit">Log in</button>
+        <p className="forgot">
+          <Link to="/password">forgot password?</Link>
+        </p>
       </form>
     </div>
   );
