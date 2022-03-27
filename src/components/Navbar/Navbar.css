@@ -1,0 +1,34 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  border-bottom: 1px solid #dbdbdb;
+  background: white;
+}
+
+nav .logo {
+  font-size: 2rem;
+  color: #f1356d;
+  font-weight: bold;
+}
+
+.navbar a {
+  margin-left: 16px;
+  text-decoration: none;
+  padding: 6px;
+}
+
+[href="/"]:hover {
+  color: #f1356d;
+}
+
+.create-button {
+  color: white;
+  background: #f1356d;
+  border-radius: 8px;
+}
+
+.create-button:hover {
+  background: hsl(342, 87%, 70%);
+}

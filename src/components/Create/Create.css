@@ -1,0 +1,45 @@
+.create {
+  max-width: 750px;
+  margin: auto;
+}
+
+.create h1 {
+  font-weight: normal;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.create p {
+  margin-bottom: 1rem;
+}
+
+.create input {
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+  height: 1.5rem;
+}
+
+.create input::placeholder {
+  opacity: 0.5;
+}
+
+.create textarea {
+  margin-top: 0.5rem;
+}
+
+.create form {
+  padding-left: 1rem;
+}
+
+.create .body {
+    margin: 0;
+}
+
+.submit {
+    display: flex;
+    justify-content: flex-end;
+}
+  
+.submit button {
+  padding: 0.5rem 1rem;
+}

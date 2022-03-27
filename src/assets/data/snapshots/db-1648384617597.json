@@ -1,0 +1,53 @@
+{
+  "blogs": [
+    {
+      "id": 1,
+      "title": "React JS Hello World",
+      "body": "...",
+      "author": "Facebook",
+      "likes": 43
+    },
+    {
+      "id": 2,
+      "title": "System Initiation",
+      "body": "...",
+      "author": "Linux",
+      "likes": 25
+    },
+    {
+      "id": 3,
+      "title": "Formation UX/UI",
+      "body": "...",
+      "author": "Flutter",
+      "likes": 72
+    },
+    {
+      "id": 4,
+      "title": "Level Design",
+      "body": "...",
+      "author": "Unity 3D",
+      "likes": 91
+    },
+    {
+      "id": 5,
+      "title": "Manage your datas easily",
+      "body": "...",
+      "author": "Mongo DB",
+      "likes": 22
+    },
+    {
+      "id": 6,
+      "title": "Master Angular",
+      "body": "...",
+      "author": "Google",
+      "likes": 126
+    },
+    {
+      "id": 7,
+      "title": "Style easily with Bootstrap 5",
+      "body": "...",
+      "author": "Twitter",
+      "likes": 78
+    }
+  ]
+}
