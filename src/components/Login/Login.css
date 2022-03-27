@@ -1,3 +1,52 @@
+.error {
+    display: none;
+}
+
+.login-card {
+  max-width: 360px;
+  margin: auto;
+  font-size: 1.5rem;
+}
+
 .login-card .logo {
-    
+  text-align: center;
+  margin: 2rem;
+}
+
+.login-card input {
+  display: block;
+  width: 100%;
+  height: 2rem;
+  background: rgb(184, 184, 184);
+  border: none;
+  margin-top: 1rem;
+}
+
+.login-card input:focus + div {
+    width: 100%;
+    background-color: black;
+}
+
+.login-card form > div {
+  margin-top: 2rem;
+}
+
+.login-card input:focus {
+  outline: none;
+  background: white;
+}
+
+.login-card label {
+  color: rgb(102, 102, 102);
+}
+
+.login-card button {
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.login-card button:hover {
+  cursor: pointer;
 }

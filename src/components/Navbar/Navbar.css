@@ -7,7 +7,7 @@
   background: white;
 }
 
-nav .logo {
+.navbar .logo {
   font-size: 2rem;
   color: #f1356d;
   font-weight: bold;
@@ -19,16 +19,16 @@ nav .logo {
   padding: 6px;
 }
 
-[href="/"]:hover {
+.signin:hover {
   color: #f1356d;
 }
 
-.create-button {
+.signup {
   color: white;
   background: #f1356d;
   border-radius: 8px;
 }
 
-.create-button:hover {
+.signup:hover {
   background: hsl(342, 87%, 70%);
 }
