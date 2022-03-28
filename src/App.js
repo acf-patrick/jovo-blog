@@ -2,7 +2,12 @@ import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Create from "./components/Create/Create";
 import Login from "./components/Login/Login";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faStar);
 
 function App() {
   return (

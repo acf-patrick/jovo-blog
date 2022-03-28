@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./BlogList.css";
 
 const BlogList = ({ blogs, title, removeBlog }) => {
@@ -30,7 +31,10 @@ const BlogList = ({ blogs, title, removeBlog }) => {
             <h1 className="blog__title">{blog.title}</h1>
             <div className="blog__author">
               <span className="author">{blog.author}</span>
-              <span className="likes">{blog.likes} likes</span>
+              <span className="likes">
+                <span style={{ marginRight: "0.3rem" }}>{blog.likes}</span>
+                <FontAwesomeIcon icon="fa-star"/>
+              </span>
             </div>
           </div>
         ))}
