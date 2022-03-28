@@ -4,10 +4,12 @@ import './Navbar.css';
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <Link to="/" className="logo">Joov Tek</Link>
-      <div className="links">
+      <div className="navbar-left">
+        <Link to="/" className="logo">Joov Tek</Link>
         <Link to="/blogs">Explore</Link>
         <Link to="/create">Write</Link>
+      </div>
+      <div className="sign">
         <Link to="/signin" className="signin">Sign in</Link>
         <Link to="/singup" className="signup">Sign up</Link>
       </div>

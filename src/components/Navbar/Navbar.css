@@ -5,7 +5,6 @@
   padding: 0.8rem 2rem;
   border-bottom: 1px solid #dbdbdb;
   background: white;
-
 }
 
 .navbar .logo {
@@ -20,17 +19,23 @@
 }
 
 .navbar a {
-  margin-left: 1rem;
   text-decoration: none;
   padding: 0.5rem;
 }
 
-.links a:hover {
+.navbar-left {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.sign a:hover {
   color: #f1356d;
 }
 
 .signup {
   color: white;
+  margin-left: 0.5rem;
   background: #f1356d;
   border-radius: 8px;
 }
