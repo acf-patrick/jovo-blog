@@ -1,3 +1,83 @@
+@keyframes shake {
+  50% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+
+.line {
+  width: 100%;
+  height: 2px;
+  background: black;
+  transform: scale(0, 1);
+  transition: transform 500ms linear;
+}
+
+.forgot {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+}
+
+.forgot a {
+  text-decoration: none;
+}
+
+.forgot:hover a {
+  text-decoration: underline;
+}
+
+.login-card {
+  width: 360px;
+  margin: auto;
+  font-size: 1.5rem;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px #a3a3a357, -3px -3px 5px rgb(255 255 255 / 73%);
+}
+
 .login-card .logo {
-    
+  text-align: center;
+  margin: 2rem;
+}
+
+.login-card input {
+  display: block;
+  width: 100%;
+  height: 2rem;
+  border: none;
+  margin-top: 1rem;
+  border-radius: 5px;
+  background: #e5e5e5;
+}
+
+.login-card input:focus + div {
+  transform: scale(1);
+  background-color: black;
+}
+
+.login-card form > div {
+  margin-top: 2rem;
+}
+
+.login-card input:focus {
+  outline: none;
+  background: white;
+}
+
+.login-card label {
+  color: rgb(102, 102, 102);
+}
+
+.login-card button {
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.login-card button:hover {
+  cursor: pointer;
 }

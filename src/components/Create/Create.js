@@ -1,17 +1,20 @@
+import { useNavigate } from "react-router-dom";
 import "./Create.css";
 
 const Create = () => {
+  const navigate = useNavigate();
   const onSubmit = async (e) => {
+    e.preventDefault();
+
     let form = e.currentTarget;
     let blog = {
       title: form.title.value,
       body: form.body.value,
       author: form.author.value,
+      likes: 0
     };
 
     if (blog.title && blog.body && blog.author) {
-      e.preventDefault();
-
       await fetch("http://localhost:3001/blogs", {
         method: "POST",
         body: JSON.stringify(blog),
@@ -20,7 +23,8 @@ const Create = () => {
         },
       });
 
-      window.location.replace("/");
+      navigate("/", { replace: true });
+      // window.location.replace("/");
     }
   };
 

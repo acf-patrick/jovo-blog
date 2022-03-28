@@ -30,7 +30,12 @@
   justify-content: space-between;
 }
 
-.likes {
+.blog__title:hover, .blog__author:hover {
+  cursor: default;
+}
+
+.likes * {
   color: rgb(194, 194, 194);
   font-size: 0.8rem;
 }
+

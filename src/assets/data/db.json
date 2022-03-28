@@ -3,7 +3,7 @@
     {
       "id": 1,
       "username": "ACF",
-      "password": "holy shit!"
+      "password": "hello world"
     }
   ],
   "blogs": [
@@ -55,6 +55,13 @@
       "body": "...",
       "author": "Twitter",
       "likes": 78
+    },
+    {
+      "title": "qfbgsdf",
+      "body": "sbxf",
+      "author": "sfbs",
+      "likes": 0,
+      "id": 8
     }
   ]
 }
