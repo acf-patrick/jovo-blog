@@ -20,7 +20,7 @@ const Home = () => {
       {blogs && (
         <BlogList
           blogs={blogs}
-          title={blogs.length ? "All blogs!" : "No blog found"}
+          title={blogs.length ? "Top blogs!" : "No blog found"}
           removeBlog={removeBlog}
         />
       )}

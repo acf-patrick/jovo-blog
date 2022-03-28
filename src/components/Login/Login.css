@@ -7,6 +7,13 @@
   }
 }
 
+@keyframes left-to-right {
+  0% {
+    transform: translateX(-5px);
+    opacity: 0;
+  }
+}
+
 .line {
   width: 100%;
   height: 2px;
@@ -41,6 +48,10 @@
 .login-card .logo {
   text-align: center;
   margin: 2rem;
+}
+
+.login-card span {
+  margin-right: 0.5rem;
 }
 
 .login-card input {

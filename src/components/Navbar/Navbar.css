@@ -5,12 +5,18 @@
   padding: 0.8rem 2rem;
   border-bottom: 1px solid #dbdbdb;
   background: white;
+
 }
 
 .navbar .logo {
   font-size: 2rem;
   color: #f1356d;
   font-weight: bold;
+  transition: transform 1s ease-in-out;
+}
+
+.navbar .logo:hover {
+  transform: rotateY(360deg);
 }
 
 .navbar a {
@@ -19,7 +25,7 @@
   padding: 0.5rem;
 }
 
-.signin:hover {
+.links a:hover {
   color: #f1356d;
 }
 
@@ -30,5 +36,6 @@
 }
 
 .signup:hover {
+  color: white !important;
   background: hsl(342, 87%, 70%);
 }

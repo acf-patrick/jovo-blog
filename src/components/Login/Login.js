@@ -1,9 +1,9 @@
 import "./Login.css";
+import encrypt from "../../encrypt";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import encrypt from "../../encrypt";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightToBracket, faExclamationTriangle, faEye } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
   const [errMessage, setErrMessage] = useState("");
@@ -24,7 +24,7 @@ const Login = () => {
       let input = document.querySelector(`[name=${type}]`);
       input.style.animation = "";
       setTimeout(() => {
-        input.style.animation = "shake 200ms ease 0ms 2";
+        input.style.animation = "shake 200ms ease 300ms 2";
       }, 0);
       const message = `Invalid ${type}!`;
       setErrMessage(message);
@@ -75,13 +75,17 @@ const Login = () => {
               marginTop: "1rem",
               color: "red",
               fontSize: "1rem",
+              animation: "left-to-right 400ms ease-out"
             }}
           >
-            <span style={{ marginRight: "0.5rem" }}>{errMessage}</span>
+            <span>{errMessage}</span>
             <FontAwesomeIcon icon={faExclamationTriangle} />
           </p>
         )}
-        <button type="submit">Log in</button>
+        <button type="submit">
+          <span>Log in</span>
+          <FontAwesomeIcon icon={faArrowRightToBracket}/>
+        </button>
         <p className="forgot">
           <Link to="/password">forgot password?</Link>
         </p>
