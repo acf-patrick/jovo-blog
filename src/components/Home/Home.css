@@ -1,4 +1,52 @@
+@font-face {
+  font-family: UbuntuMono;
+  src: url("../../assets/fonts/UbuntuMono/UbuntuMono-Regular.ttf");
+}
+
+@keyframes cursor-fade {
+  100% {
+    opacity: 0;
+  }
+}
+
 .home {
-    width: 75%;
-    margin: auto;
+  font-family: UbuntuMono;
+  height: 75vh;
+  padding-top: 2rem;
+  padding-left: 1rem;
+  background: bottom right no-repeat url("../../assets/images/undraw_hello_re_3evm.svg");
+  background-size: auto 100%;
+  animation: appear 1s ease-out;
+}
+
+.home h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.intro * {
+  color: #999999;
+}
+
+.typewriter {
+  color: black;
+  width: 40%;
+  font-size: 2rem;
+  font-family: UbuntuMono, 'Courier New', Courier, monospace;
+  animation: appear 1s ease-out backwards;
+}
+
+.cursor {
+  color: rgb(185, 185, 185);
+  font-size: 2rem;
+  animation: cursor-fade 500ms ease-in-out alternate infinite;
+}
+
+.quote {
+  width: 45%;
 }

@@ -1,38 +1,45 @@
+import TypeWriter from "typewriter-effect";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMugHot } from "@fortawesome/free-solid-svg-icons";
+import { useState } from "react";
 import useFetch from "../../hooks/useFetch";
-import BlogList from "../BlogList/BlogList";
 import "./Home.css";
 
 const Home = () => {
-  const {
-    datas: blogs,
-    setDatas: setBlogs,
-    isPending,
-    error,
-  } = useFetch("http://localhost:3001/blogs?_sort=likes&_order=desc");
-
-  const removeBlog = (id) => {
-    setBlogs(blogs.filter((blog) => blog.id !== id));
+  const randint = (min, max) => Math.floor(Math.random() * (max - min) + min);
+  const options = {
+    cursor: "_",
+    cursorClassName: "cursor",
+    wrapperClassName: "typewriter",
+    delay: 100,
+    deleteSpeed: 50,
+    pauseFor: 3000,
+    autoStart: true,
   };
+
+  const [page, _] = useState(randint(1, 4));
+  const { datas, setDatas, isPending, error } = useFetch(
+    `http://api.quotable.io/quotes?tags=technology&page=${page}`
+  );
 
   return (
     <div className="home">
-      {isPending && <div>Loading...</div>}
-      {blogs && (
-        <BlogList
-          blogs={blogs}
-          title={blogs.length ? "Top blogs!" : "No blog found"}
-          removeBlog={removeBlog}
-        />
-      )}
-      {error && (
-        <p
-          style={{
-            color: "red",
-            fontSize: "1.5rem",
-          }}
-        >
-          {error}
-        </p>
+      <h1>Welcome fellow Jovo!</h1>
+      <p className="intro">
+        <span style={{ marginRight: "1rem" }}>What inspires ya today ?</span>
+        <FontAwesomeIcon icon={faMugHot} />
+      </p>
+      {!(isPending || error) && (
+        <div className="quote">
+          <TypeWriter
+            options={{
+              strings: datas.results
+                .sort((a, b) => randint(-1, 2))
+                .map((obj) => obj.content),
+              ...options,
+            }}
+          />
+        </div>
       )}
     </div>
   );

@@ -3,7 +3,7 @@ import encrypt from "../../encrypt";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowRightToBracket, faExclamationTriangle, faEye } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightToBracket, faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
 
 const Login = () => {
   const [errMessage, setErrMessage] = useState("");

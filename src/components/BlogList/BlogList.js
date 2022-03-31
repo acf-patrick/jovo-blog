@@ -1,3 +1,4 @@
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./BlogList.css";
 
@@ -33,7 +34,7 @@ const BlogList = ({ blogs, title, removeBlog }) => {
               <span className="author">{blog.author}</span>
               <span className="likes">
                 <span style={{ marginRight: "0.3rem" }}>{blog.likes}</span>
-                <FontAwesomeIcon icon="fa-star"/>
+                <FontAwesomeIcon icon={faStar}/>
               </span>
             </div>
           </div>

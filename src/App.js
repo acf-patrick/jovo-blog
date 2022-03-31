@@ -1,13 +1,10 @@
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
+import Blogs from "./components/Blogs/Blogs";
 import Create from "./components/Create/Create";
 import Login from "./components/Login/Login";
-
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faStar } from "@fortawesome/free-solid-svg-icons";
-
-library.add(faStar);
+import NotFound from "./components/404/NotFound";
 
 function App() {
   return (
@@ -16,21 +13,13 @@ function App() {
         <Navbar />
         <div className="content">
           <Routes>
-            <Route path="/blogs" element={<Home />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/blogs" element={<Blogs />} />
             <Route path="/create" element={<Create />} />
             <Route path="/signin" element={<Login />} />
             <Route
               path="*"
-              element={
-                <p
-                  style={{
-                    color: "red",
-                    fontSize: "1.5rem",
-                  }}
-                >
-                  No matching route
-                </p>
-              }
+              element={<NotFound />}
             />
           </Routes>
         </div>
