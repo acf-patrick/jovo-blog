@@ -25,7 +25,7 @@ const Blogs = () => {
     >
       {isPending && (
         <p className="loading">
-          <span>Loading blogs</span> <FontAwesomeIcon icon={faSpinner} spin/>
+          <span>Loading blogs</span> <FontAwesomeIcon icon={faSpinner} spin />
         </p>
       )}
       {blogs && (
