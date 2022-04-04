@@ -62,6 +62,13 @@
       "author": "sfbs",
       "likes": 0,
       "id": 8
+    },
+    {
+      "title": "FOO",
+      "body": "lorem ipsum dolor sit amet consectetur",
+      "author": "user-test",
+      "likes": 0,
+      "id": 9
     }
   ]
 }

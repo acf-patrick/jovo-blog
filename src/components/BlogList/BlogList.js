@@ -8,7 +8,7 @@ const BlogList = ({ blogs, title, removeBlog }) => {
     let elt = e.currentTarget;
     elt.style.animation = "";
     setTimeout(() => {
-      elt.style.animation = `fade ${fadeDuration}ms ease-out`;
+      elt.style.animation = `fade ${fadeDuration}ms ease-out forward`;
     }, 0);
     setTimeout(() => {
       removeBlog(blog.id);
@@ -34,7 +34,7 @@ const BlogList = ({ blogs, title, removeBlog }) => {
               <span className="author">{blog.author}</span>
               <span className="likes">
                 <span style={{ marginRight: "0.3rem" }}>{blog.likes}</span>
-                <FontAwesomeIcon icon={faStar}/>
+                <FontAwesomeIcon icon={faStar} />
               </span>
             </div>
           </div>
