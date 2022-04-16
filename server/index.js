@@ -13,7 +13,9 @@ const app = express();
 
 const server = app; // http.createServer(app);
 
-app.use(cors({ origin: "*" }));
+const port = process.env.PORT || 5000;
+
+app.use(cors());
 app.use(express.json());
 
 const routes = {
@@ -27,8 +29,8 @@ for (let key of Object.keys(routes))
 mongoose
   .connect(config.database)
   .then((res) => {
-    server.listen(config.port, () => {
-      console.log("server run");
+    server.listen(port, () => {
+      console.log(`Server running on port ${port}`);
     });
   })
   .catch((err) => console.log(err));

@@ -2,7 +2,7 @@ const express = require("express");
 const encrypt = require("../encrypt");
 const { User } = require("../models/user");
 
-let login = new express.Router();
+let login = express.Router();
 
 login.post("/", (req, res) => {
   const user = req.body;
