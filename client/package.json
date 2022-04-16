@@ -21,8 +21,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "dev": "react-scripts start && json-server ./src/assets/data/db.json --port 3001 --snapshots ./src/assets/data/snapshots"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

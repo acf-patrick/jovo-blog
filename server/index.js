@@ -1,33 +1,25 @@
 const express = require("express");
 const { default: mongoose } = require("mongoose");
 const cors = require("cors");
-const config = require("./config");
+require('dotenv').config({ path: './config.env' });
 
-// const http = require("http");
-
-const login = require("./routes/login");
-const signup = require("./routes/signup");
 const app = express();
-
 // app.use(express.urlencoded({ extended: true }));
 
+// const http = require("http");
 const server = app; // http.createServer(app);
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 
+// load middlewares
 app.use(cors());
 app.use(express.json());
 
-const routes = {
-  "/login": login,
-  "/signup": signup
-}
-
-for (let key of Object.keys(routes))
-  app.use(key, routes[key]);
+// setup routes
+app.use(require('./routes/@record'));
 
 mongoose
-  .connect(config.database)
+  .connect(process.env.DB)
   .then((res) => {
     server.listen(port, () => {
       console.log(`Server running on port ${port}`);

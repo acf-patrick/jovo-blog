@@ -3,8 +3,9 @@ const mongoose = require("mongoose");
 
 const signup = express.Router();
 
-signup.post("/", (req, res) => {
-  const data = req.body;
+signup.post("/", (req, res, next) => {
+  console.log("hey hey");
+  next();
 });
 
 module.exports = signup;
