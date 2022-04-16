@@ -1,0 +1,49 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --quaternary: #f3c5c5;
+  --ternary: #c1a3a3;
+  --secondary: #886f6f;
+  --primary: #694e4e;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("./assets/fonts/Roboto/Roboto-Medium.ttf");
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade {
+  100% {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+}
+
+/* base styles */
+* {
+  margin: 0;
+  font-family: Roboto, system-ui, "Quicksand";
+  color: var(--primary);
+}
+
+body {
+  background: #f7f7f7;
+}
+
+.content {
+  /* max-width: 800px;
+  margin: auto; */
+  padding: 20px;
+}
+
+input,
+textarea {
+  font-size: 1rem;
+  font-family: system-ui, Robot, "Quicksand";
+}

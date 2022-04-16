@@ -1,0 +1,20 @@
+@keyframes lr0 {
+  100% {
+    transform: translateX(-600px) rotate(23deg);
+  }
+}
+@keyframes lr1 {
+  100% {
+    transform: translateX(-600px) rotate(45deg);
+  }
+}
+@keyframes lr2 {
+  100% {
+    transform: translateX(-600px) rotate(90deg);
+  }
+}
+@keyframes lr3 {
+  100% {
+    transform: translateX(-600px) rotate(113deg);
+  }
+}

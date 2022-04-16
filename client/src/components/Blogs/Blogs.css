@@ -1,0 +1,16 @@
+@keyframes f {
+  0% {
+    opacity: 0.3;
+  }
+}
+
+.loading {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 2rem;
+  animation: f 500ms ease-in-out infinite alternate;
+}
+
+.loading span {
+  margin-right: 1rem;
+}
