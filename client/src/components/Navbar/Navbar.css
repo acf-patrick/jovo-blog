@@ -12,6 +12,9 @@
   padding-right: 0.8rem;
   border-bottom: 1px solid #dbdbdb;
   background: white;
+  position: sticky;
+  top: 0;
+  box-shadow: 0 1px 5px rgba(110, 110, 110, 0.295);
 }
 
 .navbar-left {
@@ -69,16 +72,44 @@
 .options {
   display: flex;
   gap: 0.7rem;
-  padding: 0;
-  list-style: none;
+}
+
+.sidebar {
+  position: fixed;
+  width: 0;
+  height: 100vh;
+  overflow: auto;
+  display: none;
+  background: hsl(204, 29%, 18%);
+  transition: width 300ms ease-out;
+  z-index: 1;
+}
+
+.sidebar a:hover {
+  background: hsl(204, 29%, 35%);
+}
+
+.sidebar a {
+  color: white;
+  display: block;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 1.5rem 1.2rem;
 }
 
 @media (max-width: 370px) {
   .logo > a {
     display: none;
-  }  
+  }
 }
 
 @media (max-width: 580px) {
-  .options { display: none; }
+  .options {
+    display: none;
+  }
+
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+  }
 }

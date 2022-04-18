@@ -1,2 +1,291 @@
-@import url(https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap);@font-face{font-family:Roboto;src:url(/static/media/Roboto-Medium.7429a63c.ttf)}@keyframes appear{0%{opacity:0}}*{margin:0;font-family:Roboto,system-ui,"Quicksand";color:#333}body{background:#f7f7f7}.content{padding:20px}input,textarea{font-size:1rem;font-family:system-ui,Robot,"Quicksand"}.navbar{display:flex;justify-content:space-between;align-items:center;padding:.8rem 2rem;border-bottom:1px solid #dbdbdb;background:#fff}.navbar .logo{font-size:2rem;color:#f1356d;font-weight:700;transition:transform 1s ease-in-out}.navbar .logo:hover{transform:rotateY(1turn)}.navbar a{text-decoration:none;padding:.5rem}.navbar-left{display:flex;grid-gap:1rem;gap:1rem;align-items:center}.sign a:hover{color:#f1356d}.signup{color:#fff;margin-left:.5rem;background:#f1356d;border-radius:8px}.signup:hover{color:#fff!important;background:#f57098}@font-face{font-family:UbuntuMono;src:url(/static/media/UbuntuMono-Regular.9fa7d55c.ttf)}@keyframes cursor-fade{to{opacity:0}}.home{font-family:UbuntuMono;height:75vh;padding-top:2rem;padding-left:1rem;background:100% 100% no-repeat url(/static/media/undraw_hello_re_3evm.04beb8e4.svg);background-size:auto 100%;animation:appear 1s ease-out}.home h1{font-size:4rem;margin-bottom:1rem}.intro{font-size:2rem;margin-bottom:3rem}.intro *{color:#999}.typewriter{color:#000;width:40%;font-size:2rem;font-family:UbuntuMono,"Courier New",Courier,monospace;animation:appear 1s ease-out backwards}.cursor{color:#b9b9b9;font-size:2rem;animation:cursor-fade .5s ease-in-out infinite alternate}.quote{width:45%}.blogs{max-width:600px;margin:auto}.blog-preview{color:#707070;margin-top:2rem;padding:1rem;border:1px solid #f0f0f0;border-radius:5px;transition:all .3s;background:#fafafa}.blog-preview:hover{box-shadow:0 5px 5px #949494;transform:translateY(-5px)}.blog__title{font-size:1.6rem;margin-bottom:1rem;font-weight:400;color:grey}.blog__author{display:flex;justify-content:space-between}.blog__author:hover,.blog__title:hover{cursor:default}.likes *{color:#c2c2c2;font-size:.8rem}@keyframes fade{0%{opacity:.3}}.loading{margin-top:1rem;font-size:2rem;animation:fade .5s ease-in-out infinite alternate}.loading span{margin-right:1rem}.create{max-width:750px;margin:auto}.create h1{font-weight:400;font-size:1.5rem}.create h1,.create p{margin-bottom:1rem}.create input{margin-top:.5rem;padding-left:.5rem;height:1.5rem}.create input::placeholder{opacity:.5}.create textarea{margin-top:.5rem}.create form{padding-left:1rem}.create .body{margin:0}.submit{display:flex;justify-content:flex-end}.submit button{padding:.5rem 1rem}@keyframes shake{50%{transform:translateX(10px)}to{transform:translateX(-10px)}}@keyframes left-to-right{0%{transform:translateX(-5px);opacity:0}}.line{width:100%;height:2px;background:#000;transform:scaleX(0);transition:transform .5s linear}.forgot{text-align:center;margin-top:1rem;font-size:.8rem}.forgot a{text-decoration:none}.forgot:hover a{text-decoration:underline}.login-card{width:360px;margin:auto;font-size:1.5rem;padding:2rem;border-radius:5px;box-shadow:3px 3px 3px hsla(0,0%,63.9%,.3411764705882353),-3px -3px 5px hsla(0,0%,100%,.73)}.login-card .logo{text-align:center;margin:2rem}.login-card span{margin-right:.5rem}.login-card input{display:block;width:100%;height:2rem;border:none;margin-top:1rem;border-radius:5px;background:#e5e5e5}.login-card input:focus+div{transform:scale(1);background-color:#000}.login-card form>div{margin-top:2rem}.login-card input:focus{outline:none;background:#fff}.login-card label{color:#666}.login-card button{font-size:1rem;padding:.5rem 0;margin-top:2rem;width:100%}.login-card button:hover{cursor:pointer}.not-found{display:flex;justify-content:space-around;align-items:flex-end;background:url("/static/media/404 Page Not Found _Monochromatic.9f0c5b0e.svg") no-repeat 50%;min-height:360px;max-width:480px;margin:auto}.not-found p{font-family:system-ui;font-size:2rem;color:#026379}
+@import url(https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap);
+@font-face {
+  font-family: Roboto;
+  src: url(/static/media/Roboto-Medium.7429a63c.ttf);
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+}
+* {
+  margin: 0;
+  font-family: Roboto, system-ui, "Quicksand";
+  color: #333;
+}
+body {
+  background: #f7f7f7;
+}
+.content {
+  padding: 20px;
+}
+input,
+textarea {
+  font-size: 1rem;
+  font-family: system-ui, Robot, "Quicksand";
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  border-bottom: 1px solid #dbdbdb;
+  background: #fff;
+}
+.navbar .logo {
+  font-size: 2rem;
+  color: #f1356d;
+  font-weight: 700;
+  transition: transform 1s ease-in-out;
+}
+.navbar .logo:hover {
+  transform: rotateY(1turn);
+}
+.navbar a {
+  text-decoration: none;
+  padding: 0.5rem;
+}
+.navbar-left {
+  display: flex;
+  grid-gap: 1rem;
+  gap: 1rem;
+  align-items: center;
+}
+.sign a:hover {
+  color: #f1356d;
+}
+.signup {
+  color: #fff;
+  margin-left: 0.5rem;
+  background: #f1356d;
+  border-radius: 8px;
+}
+.signup:hover {
+  color: #fff !important;
+  background: #f57098;
+}
+@font-face {
+  font-family: UbuntuMono;
+  src: url(/static/media/UbuntuMono-Regular.9fa7d55c.ttf);
+}
+@keyframes cursor-fade {
+  to {
+    opacity: 0;
+  }
+}
+.home {
+  font-family: UbuntuMono;
+  height: 75vh;
+  padding-top: 2rem;
+  padding-left: 1rem;
+  background: 100% 100% no-repeat
+    url(/static/media/undraw_hello_re_3evm.04beb8e4.svg);
+  background-size: auto 100%;
+  animation: appear 1s ease-out;
+}
+.home h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+.intro {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+.intro * {
+  color: #999;
+}
+.typewriter {
+  color: #000;
+  width: 40%;
+  font-size: 2rem;
+  font-family: UbuntuMono, "Courier New", Courier, monospace;
+  animation: appear 1s ease-out backwards;
+}
+.cursor {
+  color: #b9b9b9;
+  font-size: 2rem;
+  animation: cursor-fade 0.5s ease-in-out infinite alternate;
+}
+.quote {
+  width: 45%;
+}
+.blogs {
+  max-width: 600px;
+  margin: auto;
+}
+.blog-preview {
+  color: #707070;
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #f0f0f0;
+  border-radius: 5px;
+  transition: all 0.3s;
+  background: #fafafa;
+}
+.blog-preview:hover {
+  box-shadow: 0 5px 5px #949494;
+  transform: translateY(-5px);
+}
+.blog__title {
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+  color: grey;
+}
+.blog__author {
+  display: flex;
+  justify-content: space-between;
+}
+.blog__author:hover,
+.blog__title:hover {
+  cursor: default;
+}
+.likes * {
+  color: #c2c2c2;
+  font-size: 0.8rem;
+}
+@keyframes fade {
+  0% {
+    opacity: 0.3;
+  }
+}
+.loading {
+  margin-top: 1rem;
+  font-size: 2rem;
+  animation: fade 0.5s ease-in-out infinite alternate;
+}
+.loading span {
+  margin-right: 1rem;
+}
+.create {
+  max-width: 750px;
+  margin: auto;
+}
+.create h1 {
+  font-weight: 400;
+  font-size: 1.5rem;
+}
+.create h1,
+.create p {
+  margin-bottom: 1rem;
+}
+.create input {
+  margin-top: 0.5rem;
+  padding-left: 0.5rem;
+  height: 1.5rem;
+}
+.create input::placeholder {
+  opacity: 0.5;
+}
+.create textarea {
+  margin-top: 0.5rem;
+}
+.create form {
+  padding-left: 1rem;
+}
+.create .body {
+  margin: 0;
+}
+.submit {
+  display: flex;
+  justify-content: flex-end;
+}
+.submit button {
+  padding: 0.5rem 1rem;
+}
+@keyframes shake {
+  50% {
+    transform: translateX(10px);
+  }
+  to {
+    transform: translateX(-10px);
+  }
+}
+@keyframes left-to-right {
+  0% {
+    transform: translateX(-5px);
+    opacity: 0;
+  }
+}
+.line {
+  width: 100%;
+  height: 2px;
+  background: #000;
+  transform: scaleX(0);
+  transition: transform 0.5s linear;
+}
+.forgot {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+}
+.forgot a {
+  text-decoration: none;
+}
+.forgot:hover a {
+  text-decoration: underline;
+}
+.login-card {
+  width: 360px;
+  margin: auto;
+  font-size: 1.5rem;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 3px 3px 3px hsla(0, 0%, 63.9%, 0.3411764705882353),
+    -3px -3px 5px hsla(0, 0%, 100%, 0.73);
+}
+.login-card .logo {
+  text-align: center;
+  margin: 2rem;
+}
+.login-card span {
+  margin-right: 0.5rem;
+}
+.login-card input {
+  display: block;
+  width: 100%;
+  height: 2rem;
+  border: none;
+  margin-top: 1rem;
+  border-radius: 5px;
+  background: #e5e5e5;
+}
+.login-card input:focus + div {
+  transform: scale(1);
+  background-color: #000;
+}
+.login-card form > div {
+  margin-top: 2rem;
+}
+.login-card input:focus {
+  outline: none;
+  background: #fff;
+}
+.login-card label {
+  color: #666;
+}
+.login-card button {
+  font-size: 1rem;
+  padding: 0.5rem 0;
+  margin-top: 2rem;
+  width: 100%;
+}
+.login-card button:hover {
+  cursor: pointer;
+}
+.not-found {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  background: url("/static/media/404 Page Not Found _Monochromatic.9f0c5b0e.svg")
+    no-repeat 50%;
+  min-height: 360px;
+  max-width: 480px;
+  margin: auto;
+}
+.not-found p {
+  font-family: system-ui;
+  font-size: 2rem;
+  color: #026379;
+}
 /*# sourceMappingURL=main.a26fa27c.chunk.css.map */

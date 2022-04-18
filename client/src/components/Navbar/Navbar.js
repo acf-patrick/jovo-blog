@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 import logo from "../../assets/images/vecteezy_jt-logo-monogram-with-slash-style-design-template_.png";
+import Options from "./Options";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -11,37 +13,39 @@ const Navbar = () => {
     }, 0);
   };
 
-  const links = [
-    { path: "/blogs", content: "Explore" },
-    { path: "/create", content: "Write" },
-  ];
+  const [collapsed, setCollapsed] = useState(false);
+  const collapseSidebar = (e) => {
+    e.preventDefault();
+    const div = document.querySelector(".sidebar");
+    if (div.display !== "none") {
+      div.style.width = collapsed ? "0" : "370px";
+      setCollapsed(!collapsed);
+    }
+  };
 
   return (
-    <nav className="navbar">
-      <div className="navbar-left">
-        <div onMouseOver={logoOnHover} className="logo">
-          <img src={logo} alt="logo" width="48" />
-          <Link title="Home" to="/">
-            Joov Tek
+    <>
+      <nav className="navbar">
+        <div className="navbar-left">
+          <div onMouseOver={logoOnHover} className="logo">
+            <img onClick={collapseSidebar} src={logo} alt="logo" width="48" />
+            <Link title="Home" to="/">
+              Joov Tek
+            </Link>
+          </div>
+          <Options className="options" />
+        </div>
+        <div className="sign">
+          <Link to="/signin" className="signin">
+            Sign in
+          </Link>
+          <Link to="/singup" className="signup">
+            Sign up
           </Link>
         </div>
-        <ul className="options">
-          {links.map((link, i) => (
-            <li key={i}>
-              <Link to={link.path}>{link.content}</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div className="sign">
-        <Link to="/signin" className="signin">
-          Sign in
-        </Link>
-        <Link to="/singup" className="signup">
-          Sign up
-        </Link>
-      </div>
-    </nav>
+      </nav>
+      <Options className="sidebar" />
+    </>
   );
 };
 
