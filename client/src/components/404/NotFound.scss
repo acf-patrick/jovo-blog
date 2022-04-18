@@ -1,0 +1,16 @@
+.not-found {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  background: url("../../assets/images/404\ Page\ Not\ Found\ _Monochromatic.svg")
+    no-repeat center;
+  min-height: 360px;
+  max-width: 480px;
+  margin: auto;
+
+  p {
+    font-family: system-ui;
+    font-size: 2rem;
+    color: #026379;
+  }
+}

@@ -25,6 +25,20 @@
   }
 }
 
+::-webkit-scrollbar {
+  background: rgb(179, 179, 179);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(252, 228, 228, 0.644);
+  width: 40%;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(252, 228, 228);
+}
+
 /* base styles */
 * {
   margin: 0;

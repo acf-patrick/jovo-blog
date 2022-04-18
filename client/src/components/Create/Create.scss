@@ -1,0 +1,53 @@
+@keyframes create-appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+    /* transform: translateY(-15px); */
+  }
+}
+
+.create {
+  max-width: 750px;
+  margin: auto;
+
+  h1 {
+    font-weight: normal;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+  }
+
+  input {
+    margin-top: 0.5rem;
+    padding-left: 0.5rem;
+    height: 1.5rem;
+
+    &::placeholder {
+      opacity: 0.5;
+    }
+  }
+
+  textarea {
+    margin-top: 0.5rem;
+  }
+
+  form {
+    padding-left: 1rem;
+  }
+
+  .body {
+    margin: 0;
+  }
+
+  .submit {
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      padding: 0.5rem 1rem;
+    }
+  }
+}

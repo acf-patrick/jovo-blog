@@ -1,0 +1,77 @@
+@font-face {
+  font-family: UbuntuMono;
+  src: url("../../assets/fonts/UbuntuMono/UbuntuMono-Regular.ttf");
+}
+
+@keyframes cursor-fade {
+  100% {
+    opacity: 0;
+  }
+}
+
+.home {
+  font-family: UbuntuMono;
+  animation: appear 1s ease-out;
+
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  padding: 3rem 2rem 0;
+  margin-bottom: 2rem;
+}
+
+.left {
+  width: 40%;
+}
+
+.right {
+  width: 60%;
+
+  img {
+    width: 100%;
+  }
+}
+
+.right .intro {
+  font-size: 1.5rem;
+  margin-bottom: 3rem;
+
+  * {
+    color: #999999;
+  }
+
+  .typewriter {
+    color: black;
+    /* width: 40%; */
+    font-size: 2rem;
+    font-family: UbuntuMono, "Courier New", Courier, monospace;
+    animation: appear 1s ease-out backwards;
+    text-align: justify;
+  }
+
+  .cursor {
+    color: rgb(185, 185, 185);
+    font-size: 2rem;
+    animation: cursor-fade 500ms ease-in-out alternate infinite;
+  }
+
+  .quote {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .head {
+    gap: 1rem;
+  }
+  .left,
+  .right {
+    flex-basis: 100%;
+  }
+}
