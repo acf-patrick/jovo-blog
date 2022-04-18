@@ -1,11 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 
-const signup = express.Router();
+const router = express.Router();
 
-signup.post("/", (req, res, next) => {
-  console.log("hey hey");
-  next();
+router.post("/", (req, res) => {
+  res.send("Sign up!");
 });
 
-module.exports = signup;
+module.exports = router;

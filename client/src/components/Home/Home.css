@@ -12,16 +12,34 @@
 .home {
   font-family: UbuntuMono;
   height: 75vh;
-  padding-top: 2rem;
-  padding-left: 3rem;
-  background: bottom right no-repeat url("../../assets/images/undraw_hello_re_3evm.svg");
-  background-size: auto 80%;
+  /* padding-top: 2rem;
+  padding-left: 3rem; */
+  /* background: bottom right no-repeat url("../../assets/images/undraw_hello_re_3evm.svg");
+  background-size: auto 80%; */
   animation: appear 1s ease-out;
 }
 
 .home h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  padding: 3rem 2rem 0;
+}
+
+.left {
+  width: 40%;
+}
+
+.right {
+  width: 60%;
+}
+
+.right img {
+  width: 100%;
 }
 
 .intro {
@@ -35,9 +53,9 @@
 
 .typewriter {
   color: black;
-  width: 40%;
+  /* width: 40%; */
   font-size: 2rem;
-  font-family: UbuntuMono, 'Courier New', Courier, monospace;
+  font-family: UbuntuMono, "Courier New", Courier, monospace;
   animation: appear 1s ease-out backwards;
 }
 
@@ -48,5 +66,15 @@
 }
 
 .quote {
-  width: 45%;
+  width: 100%;
+}
+
+@media (max-width: 600px) {
+  .head {
+    gap: 1rem;
+  }
+  .left,
+  .right {
+    flex-basis: 100%;
+  }
 }

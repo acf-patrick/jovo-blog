@@ -47,7 +47,7 @@
 
 .login-card .logo {
   text-align: center;
-  margin: 2rem;
+  margin: 1rem 2rem;
 }
 
 .login-card span {
@@ -92,4 +92,10 @@
 
 .login-card button:hover {
   cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .login-card {
+    width: 80%;
+  }
 }

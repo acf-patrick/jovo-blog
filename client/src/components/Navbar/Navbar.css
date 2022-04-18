@@ -69,5 +69,16 @@
 .options {
   display: flex;
   gap: 0.7rem;
+  padding: 0;
   list-style: none;
+}
+
+@media (max-width: 370px) {
+  .logo > a {
+    display: none;
+  }  
+}
+
+@media (max-width: 580px) {
+  .options { display: none; }
 }

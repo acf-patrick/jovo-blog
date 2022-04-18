@@ -7,6 +7,4 @@ const User = mongoose.model("user", {
   id: Number,
 });
 
-module.exports = {
-  User
-};
+module.exports = User;

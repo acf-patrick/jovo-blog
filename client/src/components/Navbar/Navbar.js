@@ -11,22 +11,26 @@ const Navbar = () => {
     }, 0);
   };
 
+  const links = [
+    { path: "/blogs", content: "Explore" },
+    { path: "/create", content: "Write" },
+  ];
+
   return (
     <nav className="navbar">
       <div className="navbar-left">
-        <div className="logo">
+        <div onMouseOver={logoOnHover} className="logo">
           <img src={logo} alt="logo" width="48" />
-          <Link onMouseOver={logoOnHover} title="Home" to="/">
+          <Link title="Home" to="/">
             Joov Tek
           </Link>
         </div>
         <ul className="options">
-          <li>
-            <Link to="/blogs">Explore</Link>
-          </li>
-          <li>
-            <Link to="/create">Write</Link>
-          </li>
+          {links.map((link, i) => (
+            <li key={i}>
+              <Link to={link.path}>{link.content}</Link>
+            </li>
+          ))}
         </ul>
       </div>
       <div className="sign">

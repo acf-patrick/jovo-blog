@@ -1,10 +1,12 @@
 const express = require("express");
 const encrypt = require("../encrypt");
-const { User } = require("../models/user");
+const User = require("../models/user");
 
-let login = express.Router();
+User.create({})
 
-login.post("/", (req, res) => {
+let router = express.Router();
+
+router.post("/", (req, res) => {
   const user = req.body;
   let response = {
     username: false,
@@ -19,4 +21,4 @@ login.post("/", (req, res) => {
   });
 });
 
-module.exports = login;
+module.exports = router;
