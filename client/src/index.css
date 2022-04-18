@@ -51,11 +51,9 @@ body {
 }
 
 .content {
-  /* max-width: 800px;
-  margin: auto; */
   padding: 20px;
 }
-
+ 
 input,
 textarea {
   font-size: 1rem;

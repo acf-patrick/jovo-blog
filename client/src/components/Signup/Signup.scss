@@ -1,2 +1,159 @@
-.signup {
+$head-color: #2f2e41;
+
+body {
+	background: linear-gradient(90deg, #3F3D56, transparent);
+}
+
+.sign-up {
+  display: flex;
+  //   flex-wrap: wrap;
+
+  .illustration {
+    width: 55%;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  .content {
+    width: 45%;
+    padding-left: 2rem;
+
+    h1 {
+      font-size: 4rem;
+      font-family: "system-ui";
+      margin-bottom: 2rem;
+      color: $head-color;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      min-width: 450px;
+      width: 80%;
+      gap: 1.5rem;
+
+			button {
+				cursor: pointer;
+			}
+
+      .body {
+        display: flex;
+        gap: 1rem 4rem;
+        flex-wrap: wrap;
+
+        .name {
+          width: 400px;
+        }
+
+        .email,
+        .password {
+          width: 200px;
+        }
+
+        label {
+          padding-left: 0.2rem;
+        }
+
+        input {
+          width: 100%;
+          padding: 0.7rem;
+          border-radius: 7px;
+          margin-top: 0.5rem;
+        }
+      }
+
+      .terms {
+        font-size: 1.2rem;
+
+        input {
+          width: 1.5rem;
+          height: 1.5rem;
+        }
+
+        label {
+          padding-left: 1rem;
+          color: #3f3d56;
+          a {
+            color: black;
+          }
+        }
+      }
+
+      p {
+        font-weight: bold;
+        color: $head-color;
+        font-size: 1.2rem;
+        width: 70%;
+        margin: auto;
+        text-align: center;
+
+        span {
+          margin: 0 2rem;
+        }
+
+        &:before,
+        &:after {
+          display: inline-block;
+          content: "";
+          width: 50px;
+          height: 2px;
+          background: $head-color;
+        }
+      }
+
+      .other {
+        align-self: stretch;
+        display: flex;
+        gap: 2rem;
+        justify-content: center;
+
+				button {
+					padding: 1rem;
+					width: 150px;
+					background: transparent;
+					border: 1px solid rgb(128, 128, 128);
+					border-radius: 10px;
+					box-shadow: 0 1px 5px rgba(122, 122, 122, 0.493);
+					display: flex;
+					justify-content: space-evenly;
+					align-items: center;
+					transition: background 300ms ease-out;
+
+					&:hover {
+						background: rgba(0, 0, 0, 0.178);
+					}
+
+					img {
+						width: 1.5rem;
+					}
+				}
+
+				.facebook img {
+					fill: #4267B2;
+				}
+      }
+
+      &>button {
+				background: #f52157;
+        padding: 1.7rem 2rem;
+        border-radius: 35px;
+        align-self: flex-start;
+				margin-left: 1rem;
+				box-shadow: 0 10px 5px rgba(116, 116, 116, 0.479);
+				transition: background 300ms ease-out;
+
+				&:hover {
+					background: hsl(345, 91%, 40%);
+				}
+
+        * {
+          color: rgba(255, 255, 255, 0.76);
+          flex-shrink: 1;
+          font-size: 2rem;
+        }
+      }
+    }
+  }
 }

@@ -26,7 +26,7 @@
   margin-bottom: 1rem;
 }
 
-.head {
+.home .head {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -36,28 +36,20 @@
   margin-bottom: 2rem;
 }
 
-.left {
-  width: 40%;
-}
-
-.right {
-  width: 60%;
-}
-
-.right img {
-  width: 100%;
-}
-
-.right .intro {
+.home .intro {
   font-size: 1.5rem;
   margin-bottom: 3rem;
 }
 
-.right .intro * {
+.home .intro * {
   color: #999999;
 }
 
-.right .intro .typewriter {
+.home .quote {
+  width: 100%;
+}
+
+.home .quote .typewriter {
   color: black;
   /* width: 40%; */
   font-size: 2rem;
@@ -67,14 +59,22 @@
   text-align: justify;
 }
 
-.right .intro .cursor {
+.home .quote .cursor {
   color: #b9b9b9;
   font-size: 2rem;
   -webkit-animation: cursor-fade 500ms ease-in-out alternate infinite;
           animation: cursor-fade 500ms ease-in-out alternate infinite;
 }
 
-.right .intro .quote {
+.home .left {
+  width: 40%;
+}
+
+.home .right {
+  width: 60%;
+}
+
+.home .right img {
   width: 100%;
 }
 

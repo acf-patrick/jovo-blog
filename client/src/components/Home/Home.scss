@@ -17,52 +17,51 @@
     font-size: 3rem;
     margin-bottom: 1rem;
   }
-}
 
-.head {
-  display: flex;
-  flex-wrap: wrap-reverse;
-  padding: 3rem 2rem 0;
-  margin-bottom: 2rem;
-}
-
-.left {
-  width: 40%;
-}
-
-.right {
-  width: 60%;
-
-  img {
-    width: 100%;
-  }
-}
-
-.right .intro {
-  font-size: 1.5rem;
-  margin-bottom: 3rem;
-
-  * {
-    color: #999999;
+  .head {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    padding: 3rem 2rem 0;
+    margin-bottom: 2rem;
   }
 
-  .typewriter {
-    color: black;
-    /* width: 40%; */
-    font-size: 2rem;
-    font-family: UbuntuMono, "Courier New", Courier, monospace;
-    animation: appear 1s ease-out backwards;
-    text-align: justify;
-  }
+  .intro {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
 
-  .cursor {
-    color: rgb(185, 185, 185);
-    font-size: 2rem;
-    animation: cursor-fade 500ms ease-in-out alternate infinite;
+    * {
+      color: #999999;
+    }
   }
 
   .quote {
     width: 100%;
+
+    .typewriter {
+      color: black;
+      /* width: 40%; */
+      font-size: 2rem;
+      font-family: UbuntuMono, "Courier New", Courier, monospace;
+      animation: appear 1s ease-out backwards;
+      text-align: justify;
+    }
+
+    .cursor {
+      color: rgb(185, 185, 185);
+      font-size: 2rem;
+      animation: cursor-fade 500ms ease-in-out alternate infinite;
+    }
+  }
+  .left {
+    width: 40%;
+  }
+
+  .right {
+    width: 60%;
+
+    img {
+      width: 100%;
+    }
   }
 }
 

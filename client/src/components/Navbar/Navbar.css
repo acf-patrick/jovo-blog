@@ -101,11 +101,11 @@
   gap: 0.7rem;
 }
 
-.navbar .sidebar {
+.sidebar {
   position: fixed;
   width: 0;
   height: 100vh;
-  overflow: auto;
+  overflow: hidden;
   display: none;
   background: #21313b;
   -webkit-transition: width 300ms ease-out;
@@ -113,7 +113,7 @@
   z-index: 1;
 }
 
-.navbar .sidebar a {
+.sidebar a {
   color: white;
   display: block;
   font-weight: bold;
@@ -121,7 +121,7 @@
   padding: 1.5rem 1.2rem;
 }
 
-.navbar .sidebar a:hover {
+.sidebar a:hover {
   background: #3f5e73;
 }
 
@@ -132,9 +132,6 @@
 }
 
 @media (max-width: 580px) {
-  .options {
-    display: none;
-  }
   .sidebar {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -143,6 +140,9 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .navbar .options {
+    display: none;
   }
 }
 /*# sourceMappingURL=Navbar.css.map */

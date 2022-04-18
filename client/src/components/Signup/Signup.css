@@ -1,1 +1,185 @@
-/* No CSS *//*# sourceMappingURL=Signup.css.map */
+body {
+  background: -webkit-gradient(linear, left top, right top, from(#3F3D56), to(transparent));
+  background: linear-gradient(90deg, #3F3D56, transparent);
+}
+
+.sign-up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.sign-up .illustration {
+  width: 55%;
+}
+
+.sign-up .illustration img {
+  width: 100%;
+}
+
+.sign-up .content {
+  width: 45%;
+  padding-left: 2rem;
+}
+
+.sign-up .content h1 {
+  font-size: 4rem;
+  font-family: "system-ui";
+  margin-bottom: 2rem;
+  color: #2f2e41;
+}
+
+.sign-up .content form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  min-width: 450px;
+  width: 80%;
+  gap: 1.5rem;
+}
+
+.sign-up .content form button {
+  cursor: pointer;
+}
+
+.sign-up .content form .body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 1rem 4rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.sign-up .content form .body .name {
+  width: 400px;
+}
+
+.sign-up .content form .body .email,
+.sign-up .content form .body .password {
+  width: 200px;
+}
+
+.sign-up .content form .body label {
+  padding-left: 0.2rem;
+}
+
+.sign-up .content form .body input {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 7px;
+  margin-top: 0.5rem;
+}
+
+.sign-up .content form .terms {
+  font-size: 1.2rem;
+}
+
+.sign-up .content form .terms input {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.sign-up .content form .terms label {
+  padding-left: 1rem;
+  color: #3f3d56;
+}
+
+.sign-up .content form .terms label a {
+  color: black;
+}
+
+.sign-up .content form p {
+  font-weight: bold;
+  color: #2f2e41;
+  font-size: 1.2rem;
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+.sign-up .content form p span {
+  margin: 0 2rem;
+}
+
+.sign-up .content form p:before, .sign-up .content form p:after {
+  display: inline-block;
+  content: "";
+  width: 50px;
+  height: 2px;
+  background: #2f2e41;
+}
+
+.sign-up .content form .other {
+  -ms-flex-item-align: stretch;
+      align-self: stretch;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 2rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.sign-up .content form .other button {
+  padding: 1rem;
+  width: 150px;
+  background: transparent;
+  border: 1px solid gray;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 1px 5px rgba(122, 122, 122, 0.493);
+          box-shadow: 0 1px 5px rgba(122, 122, 122, 0.493);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: background 300ms ease-out;
+  transition: background 300ms ease-out;
+}
+
+.sign-up .content form .other button:hover {
+  background: rgba(0, 0, 0, 0.178);
+}
+
+.sign-up .content form .other button img {
+  width: 1.5rem;
+}
+
+.sign-up .content form .other .facebook img {
+  fill: #4267B2;
+}
+
+.sign-up .content form > button {
+  background: #f52157;
+  padding: 1.7rem 2rem;
+  border-radius: 35px;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  margin-left: 1rem;
+  -webkit-box-shadow: 0 10px 5px rgba(116, 116, 116, 0.479);
+          box-shadow: 0 10px 5px rgba(116, 116, 116, 0.479);
+  -webkit-transition: background 300ms ease-out;
+  transition: background 300ms ease-out;
+}
+
+.sign-up .content form > button:hover {
+  background: #c30938;
+}
+
+.sign-up .content form > button * {
+  color: rgba(255, 255, 255, 0.76);
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  font-size: 2rem;
+}
+/*# sourceMappingURL=Signup.css.map */
