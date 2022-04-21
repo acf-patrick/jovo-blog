@@ -2,7 +2,7 @@ const express = require("express");
 const encrypt = require("../encrypt");
 const User = require("../models/user");
 
-User.create({})
+User.create({});
 
 let router = express.Router();
 
@@ -13,9 +13,10 @@ router.post("/", (req, res) => {
     password: false,
   };
   User.findOne({ name: user.name }).then((result) => {
-    if (result !== null) {
+    if (result) {
       response.username = true;
       response.password = result.password === encrypt(user.password);
+      response.userID = result._id;
     }
     res.json(response);
   });

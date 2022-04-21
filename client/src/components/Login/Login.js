@@ -1,6 +1,6 @@
 import "./Login.css";
 import config from "../../config";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,11 +10,12 @@ import {
 
 const Login = () => {
   const [errMessage, setErrMessage] = useState("");
+  const navigate = useNavigate();
 
   const onFocus = () => {
     setErrMessage("");
   };
-  
+
   const onSubmit = (e) => {
     e.preventDefault();
 
@@ -45,61 +46,67 @@ const Login = () => {
       },
     })
       .then((res) => res.json())
-      .then(data => {
+      .then((data) => {
         // authentified
         if (data.username) {
-          if (data.password) console.log("authentified");
-          else displayError("password");
+          if (data.password) {
+            sessionStorage.currentUser = {
+              name: data.username,
+              id: data.userID,
+            };
+            navigate("/user/profile");
+          } else displayError("password");
         } else displayError("username");
       })
       .catch((err) => {
         console.log(err.message);
       });
-
   };
 
   return (
-    <div className="login-card" style={{ animation: "appear 700ms ease-out" }}>
-      <h1 className="logo">Joov Tek</h1>
-      <form onSubmit={onSubmit}>
-        <div className="username">
-          <label htmlFor="#username">Username</label>
-          <br />
-          <input type="text" id="username" name="username" onFocus={onFocus} />
-          <div className="line"></div>
-        </div>
-        <div className="password">
-          <label htmlFor="#password">Password</label>
-          <br />
-          <input
-            type="password"
-            id="password"
-            name="password"
-            onFocus={onFocus}
-          />
-          <div className="line"></div>
-        </div>
-        {errMessage.length !== 0 && (
-          <p
-            style={{
-              marginTop: "1rem",
-              color: "red",
-              fontSize: "1rem",
-              animation: "left-to-right 400ms ease-out",
-            }}
-          >
-            <span>{errMessage}</span>
-            <FontAwesomeIcon icon={faExclamationTriangle} />
+    <div className="login-container">
+      <div className="login-card" style={{ animation: "appear 700ms ease-out" }}>
+        <h1 className="logo">Joov Tek</h1>
+        <form onSubmit={onSubmit}>
+          <div className="username">
+            <label htmlFor="#username">Username</label>
+            <br />
+            <input type="text" id="username" name="username" onFocus={onFocus} />
+            <div className="line"></div>
+          </div>
+          <div className="password">
+            <label htmlFor="#password">Password</label>
+            <br />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              onFocus={onFocus}
+            />
+            <div className="line"></div>
+          </div>
+          {errMessage.length !== 0 && (
+            <p
+              style={{
+                marginTop: "1rem",
+                color: "red",
+                fontSize: "1rem",
+                animation: "left-to-right 400ms ease-out",
+              }}
+            >
+              <span>{errMessage}</span>
+              <FontAwesomeIcon icon={faExclamationTriangle} />
+            </p>
+          )}
+          <button type="submit">
+            <span>Log in</span>
+            <FontAwesomeIcon icon={faArrowRightToBracket} />
+          </button>
+          <p className="forgot">
+            <Link to="/password">forgot password?</Link>
           </p>
-        )}
-        <button type="submit">
-          <span>Log in</span>
-          <FontAwesomeIcon icon={faArrowRightToBracket} />
-        </button>
-        <p className="forgot">
-          <Link to="/password">forgot password?</Link>
-        </p>
-      </form>
+        </form>
+      </div>
     </div>
   );
 };

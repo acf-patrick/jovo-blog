@@ -1,5 +1,5 @@
 const config = {
-  backendURL: "http://localhost:3002",
+  backendURL: "http://localhost:5000",
   quotesEndpoint: "http://api.quotable.io/quotes",
 };
 
