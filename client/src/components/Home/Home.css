@@ -19,6 +19,7 @@
   font-family: UbuntuMono;
   -webkit-animation: appear 1s ease-out;
           animation: appear 1s ease-out;
+  padding: 1rem;
 }
 
 .home h1 {

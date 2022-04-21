@@ -1,10 +1,33 @@
 const { default: mongoose } = require("mongoose");
 
-const User = mongoose.model("user", {
-  name: String,
+const userSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    validate: {
+      validator: async (value) => {
+        const { users } = mongoose.connection.collections;
+        const result = await users.findOne({ name: value });
+        if (result) return false;
+        return true;
+      },
+      message: "{VALUE} already used",
+    },
+  },
   password: String,
-  email: String,
-  id: Number,
+  email: {
+    type: String,
+    validate: {
+      validator: async (value) => {
+        const { users } = mongoose.connection.collections;
+        const result = await users.findOne({ email: value });
+        if (result) return false;
+        return true;
+      },
+      message: "{VALUE} already used",
+    },
+  },
 });
+
+const User = mongoose.model("user", userSchema);
 
 module.exports = User;

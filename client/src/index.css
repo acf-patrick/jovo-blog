@@ -8,6 +8,11 @@
 }
 
 @font-face {
+  font-family: Ubuntu;
+  src: url("./assets/fonts/Ubuntu/Ubuntu-Regular.ttf");
+}
+
+@font-face {
   font-family: Roboto;
   src: url("./assets/fonts/Roboto/Roboto-Medium.ttf");
 }
@@ -42,7 +47,7 @@
 /* base styles */
 * {
   margin: 0;
-  font-family: Roboto, system-ui, "Quicksand";
+  font-family: Roboto, system-ui, Ubuntu, "Quicksand";
   color: var(--primary);
 }
 
@@ -50,10 +55,10 @@ body {
   background: #f7f7f7;
 }
 
-.content {
+/* .content {
   padding: 20px;
 }
- 
+ */ 
 input,
 textarea {
   font-size: 1rem;

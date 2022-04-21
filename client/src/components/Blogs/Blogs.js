@@ -21,6 +21,7 @@ const Blogs = () => {
       style={{
         width: "75%",
         margin: "auto",
+        padding: '1rem'
       }}
     >
       {isPending && (
