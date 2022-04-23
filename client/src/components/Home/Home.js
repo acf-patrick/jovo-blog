@@ -4,7 +4,7 @@ import { faMugHot } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 import illustration from "../../assets/images/undraw_hello_re_3evm.svg";
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../../hooks/fetch";
 import config from "../../config";
 import "./Home.css";
 

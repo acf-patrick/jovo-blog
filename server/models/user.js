@@ -1,4 +1,5 @@
 const { default: mongoose } = require("mongoose");
+const { blogSchema } = require("../models/blog");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -13,7 +14,6 @@ const userSchema = new mongoose.Schema({
       message: "{VALUE} already used",
     },
   },
-  password: String,
   email: {
     type: String,
     validate: {
@@ -26,6 +26,8 @@ const userSchema = new mongoose.Schema({
       message: "{VALUE} already used",
     },
   },
+  password: String,
+  blogs: Array
 });
 
 const User = mongoose.model("user", userSchema);

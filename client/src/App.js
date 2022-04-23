@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { useReducer } from "react";
 
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
@@ -8,34 +9,33 @@ import Login from "./components/Login/Login";
 import NotFound from "./components/404/NotFound";
 import Signup from "./components/Signup/Signup";
 import User from "./components/User/User";
+import ConnectedUser from "./context/user";
 
 function App() {
+  const [connectedUser, setConnectedUser] = useReducer((value, newValue) => {
+    sessionStorage.connectedUser = JSON.stringify(newValue);
+    return newValue;
+  }, null);
+
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <div className="content">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/blogs" element={<Blogs />} />
-            <Route path="/create" element={<Create />} />
-            <Route path="/signin" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/user" exact={false} element={<User />} />
-            <Route
-              path="test"
-              element={
-                <Routes>
-                  <Route path="/1" element={<p>Hello world</p>} />
-                  <Route path="/2" element={<p>Hello everybody</p>} />
-                </Routes>
-              }
-            />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+    <ConnectedUser.Provider value={{ connectedUser, setConnectedUser }}>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <div className="content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/create" element={<Create />} />
+              <Route path="/signin" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/user/*" element={<User />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </div>
         </div>
-      </div>
-    </Router>
+      </Router>
+    </ConnectedUser.Provider>
   );
 }
 

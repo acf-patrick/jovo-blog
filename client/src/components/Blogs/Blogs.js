@@ -1,4 +1,4 @@
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../../hooks/fetch";
 import BlogList from "../BlogList/BlogList";
 import "./Blogs.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

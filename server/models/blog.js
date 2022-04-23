@@ -1,9 +1,12 @@
 const mongoose = require("mongoose");
 
-const Blog = mongoose.model("blog", {
+const blogSchema = new mongoose.Schema({
   title: String,
   body: String,
   author: String,
 });
 
-module.exports = Blog;
+module.exports = {
+  Blog: mongoose.model("blog", blogSchema),
+  blogSchema: blogSchema,
+};

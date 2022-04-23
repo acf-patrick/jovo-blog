@@ -7,11 +7,11 @@ const useFetch = (url) => {
 
   useEffect(() => {
     fetch(url)
-      .then(res => {
+      .then((res) => {
         if (!res.ok) throw Error("Could not fetch data from that resource");
         return res.json();
       })
-      .then(data => {
+      .then((data) => {
         setDatas(data);
         setIsPending(false);
         setError(null);

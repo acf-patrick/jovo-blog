@@ -1,16 +1,16 @@
 import "./Login.css";
-import config from "../../config";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faArrowRightToBracket,
   faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
+import useConnectedUser from "../../hooks/connectedUser";
 
 const Login = () => {
   const [errMessage, setErrMessage] = useState("");
-  const navigate = useNavigate();
+  const login = useConnectedUser();
 
   const onFocus = () => {
     setErrMessage("");
@@ -20,8 +20,8 @@ const Login = () => {
     e.preventDefault();
 
     let form = e.currentTarget;
-    let pwd = form.password.value;
     let usr = form.username.value;
+    let pwd = form.password.value;
     form.password.value = "";
 
     const displayError = (type) => {
@@ -35,43 +35,26 @@ const Login = () => {
       throw Error(message);
     };
 
-    fetch(config.backendURL + "/login", {
-      method: "POST",
-      body: JSON.stringify({
-        name: usr,
-        password: pwd,
-      }),
-      headers: {
-        "Content-type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        // authentified
-        if (data.username) {
-          if (data.password) {
-            sessionStorage.currentUser = {
-              name: data.username,
-              id: data.userID,
-            };
-            navigate("/user/profile");
-          } else displayError("password");
-        } else displayError("username");
-      })
-      .catch((err) => {
-        console.log(err.message);
-      });
+    login(usr, pwd, displayError);
   };
 
   return (
     <div className="login-container">
-      <div className="login-card" style={{ animation: "appear 700ms ease-out" }}>
+      <div
+        className="login-card"
+        style={{ animation: "appear 700ms ease-out" }}
+      >
         <h1 className="logo">Joov Tek</h1>
         <form onSubmit={onSubmit}>
           <div className="username">
             <label htmlFor="#username">Username</label>
             <br />
-            <input type="text" id="username" name="username" onFocus={onFocus} />
+            <input
+              type="text"
+              id="username"
+              name="username"
+              onFocus={onFocus}
+            />
             <div className="line"></div>
           </div>
           <div className="password">

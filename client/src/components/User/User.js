@@ -1,25 +1,28 @@
-import { useEffect } from "react";
-import { Routes, Route } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useContext, useEffect } from "react";
+import { Routes, Route, useNavigate } from "react-router-dom";
+import NotFound from "../404/NotFound";
+import ConnectedUser from "../../context/user";
 
 const User = () => {
+  const { connectedUser } = useContext(ConnectedUser);
   const navigate = useNavigate();
-  const user = sessionStorage.currentUser;
 
+  console.log(connectedUser);
+
+  // Redirect to the login page
   useEffect(() => {
-    if (!user) {
-      console.log("redirect");
-      navigate("/signin");
-    } else console.log(user);
-  }, []);
+    if (!connectedUser) navigate("/signin");
+  }, [connectedUser, navigate]);
+
+  if (!connectedUser) return <h1>You shall not pass</h1>;
 
   return (
     <>
-    <p>User : </p>
-    <Routes>
-      <Route path="/profile" element={<p>{user ? user.name : "Boo!"}</p>} />
-      {/* <Route path="*" element={<p>Boo!</p>} /> */}
-    </Routes>
+      <p>User : </p>
+      <Routes>
+        <Route path="/profile" element={<p>{connectedUser.name}</p>} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   );
 };
