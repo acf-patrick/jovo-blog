@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import ConnectedUser from "../../context/user";
-import NotFound from "../404/NotFound";
 import ConnectionGate from "../Gates/connection";
 import { useContext } from "react";
 import Create from "../Create/Create";

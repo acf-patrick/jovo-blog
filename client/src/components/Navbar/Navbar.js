@@ -24,7 +24,7 @@ const Navbar = () => {
     }
   };
 
-  const { setConnectedUser } = useContext(ConnectedUser);
+  const { connectedUser, setConnectedUser } = useContext(ConnectedUser);
 
   return (
     <>
@@ -50,14 +50,18 @@ const Navbar = () => {
         >
           Log out
         </button>
-        <div className="sign">
-          <Link to="/signin" className="signin">
-            Sign in
-          </Link>
-          <Link to="/signup" className="signup">
-            Sign up
-          </Link>
-        </div>
+        {connectedUser ? (
+          <span>Coucou</span>
+        ) : (
+          <div className="sign">
+            <Link to="/signin" className="signin">
+              Sign in
+            </Link>
+            <Link to="/signup" className="signup">
+              Sign up
+            </Link>
+          </div>
+        )}
       </nav>
       <Options className="sidebar" />
     </>

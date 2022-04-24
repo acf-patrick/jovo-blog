@@ -7,9 +7,8 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding-left: 0.8rem;
-  padding-right: 0.8rem;
+  align-items: stretch;
+  padding: 0.5rem 0.8rem;
   border-bottom: 1px solid #dbdbdb;
   background: white;
   position: sticky;
@@ -53,7 +52,8 @@
   }
 
   .sign {
-    margin: 1.5rem 0 1.5rem;
+    display: flex;
+    align-items: center;
 
     .signup {
       color: white;

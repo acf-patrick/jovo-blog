@@ -1,21 +1,52 @@
+@-webkit-keyframes glitch {
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes glitch {
+  50% {
+    opacity: 0.5;
+  }
+  75% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .not-found {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-  background: url("../../assets/images/404 Page Not Found _Monochromatic.svg") no-repeat center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
   min-height: 360px;
   max-width: 480px;
   margin: auto;
+}
+
+.not-found img {
+  -webkit-animation: glitch 1s ease-in infinite alternate;
+          animation: glitch 1s ease-in infinite alternate;
 }
 
 .not-found p {
   font-family: system-ui;
   font-size: 2rem;
   color: #026379;
+  text-align: center;
 }
 /*# sourceMappingURL=NotFound.css.map */

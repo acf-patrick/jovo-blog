@@ -9,7 +9,6 @@ import NotFound from "./components/404/NotFound";
 import Signup from "./components/Signup/Signup";
 import User from "./components/User/User";
 import ConnectedUser from "./context/user";
-import Loading from "./components/Loading/Loading";
 
 function App() {
   const [connectedUser, setConnectedUser] = useReducer((value, newValue) => {
@@ -34,7 +33,7 @@ function App() {
           <Navbar />
           <div className="content">
             <Routes>
-              <Route path="/" element={loading ? <Loading /> : <Home />} />
+              <Route path="/" element={<Home />} />
               <Route path="/signin" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/blogs" element={<Blogs />} />
