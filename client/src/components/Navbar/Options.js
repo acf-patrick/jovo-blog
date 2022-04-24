@@ -5,9 +5,11 @@ import {
   faWandSparkles,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import ConnectedUser from "../../context/user";
+
+let lastOnClickCallback = null;
 
 const Options = ({ className = "" }) => {
   let links = [
@@ -51,8 +53,9 @@ const Options = ({ className = "" }) => {
     setLastClicked(underline);
   };
 
-  useEffect(() => {
-    document.addEventListener("click", (event) => {
+  /*   useEffect(() => {
+    document.removeEventListener("click", lastOnClickCallback);
+    lastOnClickCallback = (event) => {
       const options = document.querySelector(".options");
       const rect = options.getBoundingClientRect();
       const [x, y] = [event.clientX, event.clientY];
@@ -65,14 +68,15 @@ const Options = ({ className = "" }) => {
         )
       ) {
         if (lastClicked) {
-          console.log('remove underline');
+          console.log("remove underline");
           lastClicked.style.transform = "scaleX(0)";
           setLastClicked(null);
         }
       }
-    });
+    };
+    document.addEventListener("click", lastOnClickCallback);
   }, [lastClicked]);
-
+ */
   return (
     <ul className={className}>
       {links.map((link, i) => (

@@ -10,15 +10,15 @@
   }
 }
 
-.loading {
+/* .loading {
   margin-top: 2rem;
   text-align: center;
   font-size: 2rem;
-  -webkit-animation: f 500ms ease-in-out infinite alternate;
-          animation: f 500ms ease-in-out infinite alternate;
-}
+  animation: f 500ms ease-in-out infinite alternate;
 
-.loading span {
-  margin-right: 1rem;
+  span {
+    margin-right: 1rem;
+  }
 }
+ */
 /*# sourceMappingURL=Blogs.css.map */

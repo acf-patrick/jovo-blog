@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
@@ -9,6 +9,7 @@ import NotFound from "./components/404/NotFound";
 import Signup from "./components/Signup/Signup";
 import User from "./components/User/User";
 import ConnectedUser from "./context/user";
+import Loading from "./components/Loading/Loading";
 
 function App() {
   const [connectedUser, setConnectedUser] = useReducer((value, newValue) => {
@@ -17,10 +18,14 @@ function App() {
     return newValue;
   }, null);
 
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     const user = sessionStorage.connectedUser;
     if (user) setConnectedUser(JSON.parse(user));
-  }, []);
+    setTimeout(() => {
+      setLoading(false);
+    }, 5000);
+  }, [loading]);
 
   return (
     <ConnectedUser.Provider value={{ connectedUser, setConnectedUser }}>
@@ -29,7 +34,7 @@ function App() {
           <Navbar />
           <div className="content">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="/" element={loading ? <Loading /> : <Home />} />
               <Route path="/signin" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/blogs" element={<Blogs />} />
