@@ -107,6 +107,16 @@
       text-decoration: underline;
     }
   }
+
+  .error {
+    margin-top: 1rem;
+    font-size: 1rem;
+    animation: left-to-right 400ms ease-out;
+
+    * {
+      color: rgb(148, 22, 22);
+    }
+  }
 }
 
 @media (max-width: 480px) {

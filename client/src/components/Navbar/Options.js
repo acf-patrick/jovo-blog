@@ -9,7 +9,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import ConnectedUser from "../../context/user";
 
-let lastOnClickCallback = null;
+// let lastOnClickCallback = null;
 
 const Options = ({ className = "" }) => {
   let links = [

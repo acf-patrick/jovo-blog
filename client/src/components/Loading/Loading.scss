@@ -13,6 +13,7 @@
   gap: 2rem;
 
   &-wrapper {
+    z-index: 10;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.267);
@@ -40,7 +41,7 @@
     @for $i from 1 through 4 {
       $duration: 600ms;
       div:nth-child(#{$i}) {
-        animation: wave $duration ease-out #{$i * $duration/3} infinite alternate;
+      animation: wave $duration ease-out #{($i-1) * $duration/3} infinite alternate;
       }
     }
   }

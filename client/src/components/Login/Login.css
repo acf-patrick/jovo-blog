@@ -140,6 +140,17 @@
   text-decoration: underline;
 }
 
+.login-card .error {
+  margin-top: 1rem;
+  font-size: 1rem;
+  -webkit-animation: left-to-right 400ms ease-out;
+          animation: left-to-right 400ms ease-out;
+}
+
+.login-card .error * {
+  color: #941616;
+}
+
 @media (max-width: 480px) {
   .login-card {
     width: 80%;

@@ -4,8 +4,12 @@ import logo from "../../assets/images/vecteezy_jt-logo-monogram-with-slash-style
 import Options from "./Options";
 import ConnectedUser from "../../context/user";
 import "./Navbar.css";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Navbar = () => {
+  const { connectedUser, setConnectedUser } = useContext(ConnectedUser);
+
   const logoOnHover = () => {
     let logoImg = document.querySelector(".navbar .logo img");
     logoImg.style.animation = "";
@@ -24,7 +28,25 @@ const Navbar = () => {
     }
   };
 
-  const { connectedUser, setConnectedUser } = useContext(ConnectedUser);
+  const disconnect = (event) => {
+    event.preventDefault();
+    setConnectedUser(null);
+  };
+
+  const [userProfileCollapsed, setUserProfileCollapsed] = useState(false);
+  const userProfileOnClick = (event) => {
+    // rotate arrow icon
+    const arrow = event.currentTarget.querySelector("svg");
+    arrow.style.transform = userProfileCollapsed
+      ? "rotate(0)"
+      : "rotate(180deg)";
+
+    // dropdown
+    const dropdown = document.querySelector(".user-profile-dropdown");
+    dropdown.style.transform = userProfileCollapsed ? "scaleY(1)" : "scaleY(0)";
+
+    setUserProfileCollapsed(!userProfileCollapsed);
+  };
 
   return (
     <>
@@ -38,20 +60,13 @@ const Navbar = () => {
           </div>
           <Options className="options" />
         </div>
-        <button type="button">
-          <Link to="/user/profile">Profile</Link>
-        </button>
-        <button
-          type="button"
-          style={{ padding: "0.5rem 1rem", fontSize: "1rem" }}
-          onClick={() => {
-            setConnectedUser(null);
-          }}
-        >
-          Log out
-        </button>
         {connectedUser ? (
-          <span>Coucou</span>
+          <>
+            <div className="user-profile" onClick={userProfileOnClick}>
+              <div></div>
+              <FontAwesomeIcon icon={faChevronDown} />
+            </div>
+          </>
         ) : (
           <div className="sign">
             <Link to="/signin" className="signin">
@@ -63,6 +78,19 @@ const Navbar = () => {
           </div>
         )}
       </nav>
+      <ul className="user-profile-dropdown">
+        <li>
+          <Link to="/user/profile">Profile</Link>
+        </li>
+        <li>
+          <Link to="/user/setting">Settings</Link>
+        </li>
+        <li>
+          <a href="#" onClick={disconnect}>
+            Disconnect
+          </a>
+        </li>
+      </ul>
       <Options className="sidebar" />
     </>
   );

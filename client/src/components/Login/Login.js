@@ -69,14 +69,7 @@ const Login = () => {
             <div className="line"></div>
           </div>
           {errMessage.length !== 0 && (
-            <p
-              style={{
-                marginTop: "1rem",
-                color: "red",
-                fontSize: "1rem",
-                animation: "left-to-right 400ms ease-out",
-              }}
-            >
+            <p className="error">
               <span>{errMessage}</span>
               <FontAwesomeIcon icon={faExclamationTriangle} />
             </p>
