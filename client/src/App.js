@@ -4,7 +4,6 @@ import { useEffect, useReducer } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Blogs from "./components/Blogs/Blogs";
-import Create from "./components/Create/Create";
 import Login from "./components/Login/Login";
 import NotFound from "./components/404/NotFound";
 import Signup from "./components/Signup/Signup";
@@ -21,7 +20,7 @@ function App() {
   useEffect(() => {
     const user = sessionStorage.connectedUser;
     if (user) setConnectedUser(JSON.parse(user));
-  }, [sessionStorage]);
+  }, []);
 
   return (
     <ConnectedUser.Provider value={{ connectedUser, setConnectedUser }}>
@@ -34,7 +33,6 @@ function App() {
               <Route path="/signin" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/blogs" element={<Blogs />} />
-              <Route path="/create" element={<Create />} />
               <Route path="/user/*" element={<User />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

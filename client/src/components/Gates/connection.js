@@ -8,6 +8,7 @@ const ConnectionGate = ({ children }) => {
 
   useEffect(() => {
     if (!connectedUser) navigate("/signin");
+    else console.log(connectedUser);
   });
 
   return connectedUser ? children : <h1>You have to login first!</h1>;

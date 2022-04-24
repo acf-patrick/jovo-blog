@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import logo from "../../assets/images/vecteezy_jt-logo-monogram-with-slash-style-design-template_.png";
 import Options from "./Options";
+import ConnectedUser from "../../context/user";
 import "./Navbar.css";
 
 const Navbar = () => {
@@ -23,6 +24,8 @@ const Navbar = () => {
     }
   };
 
+  const { setConnectedUser } = useContext(ConnectedUser);
+
   return (
     <>
       <nav className="navbar">
@@ -35,7 +38,18 @@ const Navbar = () => {
           </div>
           <Options className="options" />
         </div>
-        <button type="button"><Link to="/user/profile">Profile</Link></button>
+        <button type="button">
+          <Link to="/user/profile">Profile</Link>
+        </button>
+        <button
+          type="button"
+          style={{ padding: "0.5rem 1rem", fontSize: "1rem" }}
+          onClick={() => {
+            setConnectedUser(null);
+          }}
+        >
+          Log out
+        </button>
         <div className="sign">
           <Link to="/signin" className="signin">
             Sign in

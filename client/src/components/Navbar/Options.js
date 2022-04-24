@@ -1,38 +1,90 @@
-import { faBolt, faFeatherPointed } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBolt,
+  faBook,
+  faFeatherPointed,
+  faWandSparkles,
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ConnectedUser from "../../context/user";
 
-const Icon = ({ icon }) => {
-  return <FontAwesomeIcon icon={icon} style={{ marginRight: "0.5rem" }} />;
-};
-
 const Options = ({ className = "" }) => {
-  const links = [
+  let links = [
     {
       path: "/blogs",
       content: "Explore",
-      icon: <Icon icon={faBolt} />,
+      icon: faBolt,
     },
     {
-      path: "/create",
+      path: "/user/write",
       content: "Write",
-      icon: <Icon icon={faFeatherPointed} />,
+      icon: faFeatherPointed,
+      requireConnection: true,
+    },
+    {
+      path: "/user/blogs",
+      content: "Your blogs",
+      icon: faBook,
+      requireConnection: true,
+    },
+    {
+      path: "/user/inspirations",
+      content: "Inspirations",
+      icon: faWandSparkles,
+      requireConnection: true,
     },
   ];
 
   const { connectedUser } = useContext(ConnectedUser);
-  if (!connectedUser) links.pop();
+  links = links.filter((obj) => {
+    if (obj.requireConnection) return connectedUser ? true : false;
+    return true;
+  });
+
+  const [lastClicked, setLastClicked] = useState(null);
+  const linkOnClick = (event) => {
+    const underline = event.currentTarget.querySelector("div");
+    if (lastClicked === underline) return;
+    underline.style.transform = "scaleX(1)";
+    if (lastClicked) lastClicked.style.transform = "scaleX(0)";
+    setLastClicked(underline);
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", (event) => {
+      const options = document.querySelector(".options");
+      const rect = options.getBoundingClientRect();
+      const [x, y] = [event.clientX, event.clientY];
+      if (
+        !(
+          rect.x <= x &&
+          x <= rect.x + rect.width &&
+          rect.y <= y &&
+          y <= rect.y + rect.height
+        )
+      ) {
+        if (lastClicked) {
+          console.log('remove underline');
+          lastClicked.style.transform = "scaleX(0)";
+          setLastClicked(null);
+        }
+      }
+    });
+  }, [lastClicked]);
 
   return (
     <ul className={className}>
       {links.map((link, i) => (
-        <li key={i}>
+        <li key={i} onClick={linkOnClick}>
           <Link to={link.path}>
-            {link.icon}
+            <FontAwesomeIcon
+              icon={link.icon}
+              style={{ marginRight: "0.5rem" }}
+            />
             {link.content}
           </Link>
+          <div></div>
         </li>
       ))}
     </ul>

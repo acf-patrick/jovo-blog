@@ -1,20 +1,7 @@
-import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Square from "../Square/Square";
 import "./Create.css";
-import ConnectedUser from "../../context/user";
-import { useContext } from "react";
-
-const Gate = ({ toShow }) => {
-  const navigate = useNavigate();
-  const { connectedUser } = useContext(ConnectedUser);
-
-  useEffect(() => {
-    if (!connectedUser) navigate("/signin");
-  });
-
-  return connectedUser ? toShow : <h1>Login first!</h1>
-};
+import ConnectionGate from "../Gates/connection";
 
 const Create = () => {
   const navigate = useNavigate();
@@ -43,7 +30,7 @@ const Create = () => {
   };
 
   return (
-    <Gate toShow={
+    <ConnectionGate>
       <div
         className="create"
         style={{ animation: "create-appear 700ms ease-out" }}
@@ -77,7 +64,7 @@ const Create = () => {
         </form>
         <Square />
       </div>
-    } />
+    </ConnectionGate>
   );
 };
 

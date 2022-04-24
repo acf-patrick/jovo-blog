@@ -6,11 +6,11 @@ import {
   faArrowRightToBracket,
   faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
-import useConnectedUser from "../../hooks/connectedUser";
+import useLogin from "../../hooks/login";
 
 const Login = () => {
   const [errMessage, setErrMessage] = useState("");
-  const login = useConnectedUser();
+  const login = useLogin();
 
   const onFocus = () => {
     setErrMessage("");
