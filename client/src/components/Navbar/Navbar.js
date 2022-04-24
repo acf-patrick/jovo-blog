@@ -3,7 +3,6 @@ import { useState } from "react";
 import logo from "../../assets/images/vecteezy_jt-logo-monogram-with-slash-style-design-template_.png";
 import Options from "./Options";
 import "./Navbar.css";
-import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const logoOnHover = () => {
@@ -36,6 +35,7 @@ const Navbar = () => {
           </div>
           <Options className="options" />
         </div>
+        <button type="button"><Link to="/user/profile">Profile</Link></button>
         <div className="sign">
           <Link to="/signin" className="signin">
             Sign in

@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
@@ -13,9 +13,15 @@ import ConnectedUser from "./context/user";
 
 function App() {
   const [connectedUser, setConnectedUser] = useReducer((value, newValue) => {
-    sessionStorage.connectedUser = JSON.stringify(newValue);
+    if (newValue === null) sessionStorage.removeItem("connectedUser");
+    else sessionStorage.connectedUser = JSON.stringify(newValue);
     return newValue;
   }, null);
+
+  useEffect(() => {
+    const user = sessionStorage.connectedUser;
+    if (user) setConnectedUser(JSON.parse(user));
+  }, [sessionStorage]);
 
   return (
     <ConnectedUser.Provider value={{ connectedUser, setConnectedUser }}>
@@ -25,10 +31,10 @@ function App() {
           <div className="content">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/blogs" element={<Blogs />} />
-              <Route path="/create" element={<Create />} />
               <Route path="/signin" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/create" element={<Create />} />
               <Route path="/user/*" element={<User />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
