@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import logo from "../../assets/images/vecteezy_jt-logo-monogram-with-slash-style-design-template_.png";
 import Options from "./Options";
 import ConnectedUser from "../../context/user";
 import "./Navbar.css";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Navbar = () => {
@@ -34,19 +34,42 @@ const Navbar = () => {
   };
 
   const [userProfileCollapsed, setUserProfileCollapsed] = useState(false);
-  const userProfileOnClick = (event) => {
-    // rotate arrow icon
-    const arrow = event.currentTarget.querySelector("svg");
-    arrow.style.transform = userProfileCollapsed
-      ? "rotate(0)"
-      : "rotate(180deg)";
 
+  const toggleDropdown = () => {
+    // rotate arrow icon
+    const arrow = document.querySelector(".user-profile svg");
+    if (arrow) {
+      arrow.style.transform = userProfileCollapsed
+        ? "rotate(0)"
+        : "rotate(180deg)";
+    }
     // dropdown
     const dropdown = document.querySelector(".user-profile-dropdown");
-    dropdown.style.transform = userProfileCollapsed ? "scaleY(1)" : "scaleY(0)";
+    dropdown.style.transform = userProfileCollapsed ? "scaleY(0)" : "scaleY(1)";
 
     setUserProfileCollapsed(!userProfileCollapsed);
   };
+
+  const foldDropdown = (event) => {
+    const [x, y] = [event.clientX, event.clientY];
+    const dropdown = document.querySelector(".user-profile-dropdown");
+    const rect = dropdown.getBoundingClientRect();
+    if (
+      !(
+        rect.x <= x &&
+        x <= rect.x + rect.width &&
+        0 <= y &&
+        y <= rect.y + rect.height
+      ) &&
+      userProfileCollapsed
+    )
+      toggleDropdown(event);
+  };
+
+  useEffect(() => {
+    document.removeEventListener("click", foldDropdown);
+    document.addEventListener("click", foldDropdown);
+  }, [userProfileCollapsed]);
 
   return (
     <>
@@ -62,9 +85,9 @@ const Navbar = () => {
         </div>
         {connectedUser ? (
           <>
-            <div className="user-profile" onClick={userProfileOnClick}>
+            <div className="user-profile" onClick={toggleDropdown}>
               <div></div>
-              <FontAwesomeIcon icon={faChevronDown} />
+              <FontAwesomeIcon icon={faChevronUp} />
             </div>
           </>
         ) : (
@@ -78,19 +101,19 @@ const Navbar = () => {
           </div>
         )}
       </nav>
-      <ul className="user-profile-dropdown">
-        <li>
-          <Link to="/user/profile">Profile</Link>
-        </li>
-        <li>
-          <Link to="/user/setting">Settings</Link>
-        </li>
-        <li>
-          <a href="#" onClick={disconnect}>
-            Disconnect
-          </a>
-        </li>
-      </ul>
+      <div className="user-profile-dropdown">
+        <Link to="/user/profile">Profile</Link>
+        <Link to="/user/setting">Settings</Link>
+        <a
+          href="#"
+          onClick={(event) => {
+            toggleDropdown();
+            disconnect(event);
+          }}
+        >
+          Disconnect
+        </a>
+      </div>
       <Options className="sidebar" />
     </>
   );

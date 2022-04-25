@@ -4,7 +4,7 @@ import "./Loading.css";
 
 const randint = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
-const Loading = ({children}) => {
+const Loading = ({ children, message }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -19,6 +19,7 @@ const Loading = ({children}) => {
         <div className="logo">
           <img src={logo} alt="logo" width="128" />
         </div>
+        {message}
         <div className="dots">
           <div></div>
           <div></div>
@@ -27,7 +28,9 @@ const Loading = ({children}) => {
         </div>
       </div>
     </div>
-  ) : children;
+  ) : (
+    children
+  );
 };
 
 export default Loading;
