@@ -14,6 +14,7 @@ const port = process.env.PORT;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use("/image", express.static("image"));
 
 // setup routes
 app.use(require("./routes/@record"));
@@ -22,7 +23,7 @@ console.log("Connecting to database...");
 mongoose
   .connect(process.env.DB)
   .then((res) => {
-    mongoose.connection.collections.users.drop();
+    // mongoose.connection.collections.users.drop();
     server.listen(port, () => {
       console.log(`Server running on port ${port}`);
     });

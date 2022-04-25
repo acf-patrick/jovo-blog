@@ -3,8 +3,9 @@ import { useContext, useEffect, useState } from "react";
 import logo from "../../assets/images/vecteezy_jt-logo-monogram-with-slash-style-design-template_.png";
 import Options from "./Options";
 import ConnectedUser from "../../context/user";
+import config from "../../config";
 import "./Navbar.css";
-import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { faArrowRightFromBracket, faChevronUp, faGear, faHomeUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Navbar = () => {
@@ -71,6 +72,16 @@ const Navbar = () => {
     document.addEventListener("click", foldDropdown);
   }, [userProfileCollapsed]);
 
+/*   const [usrProfilePic, setUsrProfilePic] = useState("");
+  useEffect(() => {
+    if (connectedUser)
+      fetch(config.backendURL + "/image/profile/" + connectedUser.id)
+        .then((res) => res.text())
+        .then((profilePic) => {
+          setUsrProfilePic(config.backendURL + "/" + profilePic);
+        });
+  }, [connectedUser]);
+ */
   return (
     <>
       <nav className="navbar">
@@ -86,7 +97,13 @@ const Navbar = () => {
         {connectedUser ? (
           <>
             <div className="user-profile" onClick={toggleDropdown}>
-              <div></div>
+              {connectedUser.profilePicture ? (
+                <div>
+                  <img src={config.backendURL + connectedUser.profilePicture} alt="" width="32" height="32" />
+                </div>
+              ) : (
+                <div className="circle"></div>
+              )}
               <FontAwesomeIcon icon={faChevronUp} />
             </div>
           </>
@@ -102,8 +119,8 @@ const Navbar = () => {
         )}
       </nav>
       <div className="user-profile-dropdown">
-        <Link to="/user/profile">Profile</Link>
-        <Link to="/user/setting">Settings</Link>
+        <Link to="/user/profile"><FontAwesomeIcon icon={faHomeUser} />Profile</Link>
+        <Link to="/user/setting"><FontAwesomeIcon icon={faGear} />Settings</Link>
         <a
           href="#"
           onClick={(event) => {
@@ -111,7 +128,7 @@ const Navbar = () => {
             disconnect(event);
           }}
         >
-          Disconnect
+          <FontAwesomeIcon icon={faArrowRightFromBracket} />Disconnect
         </a>
       </div>
       <Options className="sidebar" />

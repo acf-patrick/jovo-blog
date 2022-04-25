@@ -38,10 +38,10 @@
       background: rgb(20, 19, 19);
     }
 
-    @for $i from 1 through 4 {
+    @for $i from 0 through 3 {
       $duration: 600ms;
-      div:nth-child(#{$i}) {
-      animation: wave $duration ease-out #{($i-1) * $duration/3} infinite alternate;
+      div:nth-child(#{$i+1}) {
+        animation: wave $duration ease-out #{$i * $duration/3} infinite alternate;
       }
     }
   }

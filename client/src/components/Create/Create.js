@@ -35,7 +35,7 @@ const Create = () => {
         className="create"
         style={{ animation: "create-appear 700ms ease-out" }}
       >
-        <Square />
+        {/* <Square /> */}
         <h1>Write a new blog</h1>
         <form onSubmit={onSubmit}>
           <p className="author">
@@ -56,13 +56,13 @@ const Create = () => {
           <p className="body">
             <label htmlFor="#body">What inspires you today?</label>
             <br />
-            <textarea name="body" id="body" cols="40" rows="10"></textarea>
+            <textarea name="body" id="body" rows="10"></textarea>
           </p>
           <p className="submit">
             <button type="submit">Create</button>
           </p>
         </form>
-        <Square />
+        {/* <Square /> */}
       </div>
     </ConnectionGate>
   );

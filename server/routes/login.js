@@ -13,11 +13,16 @@ router.post("/", (req, res) => {
     password: false,
   };
   User.findOne({ name: user.name }).then((result) => {
-    if (result) {
-      response.username = true;
-      response.password = result.password === encrypt(user.password);
-      response.userID = result._id;
-    }
+    if (result) 
+      response = {        
+        ...response,
+        username: true,
+        password: result.password === encrypt(user.password),
+        id: result._id,
+        email: result.email,
+        profilePicture: result.profilePicture,
+      };
+    // console.log(result);
     res.json(response);
   });
 });

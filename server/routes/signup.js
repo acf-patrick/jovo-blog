@@ -12,6 +12,7 @@ router.post("/", (req, res) => {
     name: user.name,
     email: user.email,
     password: encrypt(user.password),
+    profilePicture: "octocat.svg"
   })
     .save()
     .then(() => {

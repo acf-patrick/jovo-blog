@@ -5,8 +5,8 @@ import {
   faWandSparkles,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import ConnectedUser from "../../context/user";
 
 // let lastOnClickCallback = null;
@@ -38,6 +38,8 @@ const Options = ({ className = "" }) => {
     },
   ];
 
+  const location = useLocation();
+
   const { connectedUser } = useContext(ConnectedUser);
   links = links.filter((obj) => {
     if (obj.requireConnection) return connectedUser ? true : false;
@@ -46,42 +48,25 @@ const Options = ({ className = "" }) => {
 
   const [lastClicked, setLastClicked] = useState(null);
   const linkOnClick = (event) => {
-    const underline = event.currentTarget.querySelector("div");
+    const underline = event.currentTarget.nextElementSibling;
     if (lastClicked === underline) return;
     underline.style.transform = "scaleX(1)";
     if (lastClicked) lastClicked.style.transform = "scaleX(0)";
     setLastClicked(underline);
   };
 
-  /*   useEffect(() => {
-    document.removeEventListener("click", lastOnClickCallback);
-    lastOnClickCallback = (event) => {
-      const options = document.querySelector(".options");
-      const rect = options.getBoundingClientRect();
-      const [x, y] = [event.clientX, event.clientY];
-      if (
-        !(
-          rect.x <= x &&
-          x <= rect.x + rect.width &&
-          rect.y <= y &&
-          y <= rect.y + rect.height
-        )
-      ) {
-        if (lastClicked) {
-          console.log("remove underline");
-          lastClicked.style.transform = "scaleX(0)";
-          setLastClicked(null);
-        }
-      }
-    };
-    document.addEventListener("click", lastOnClickCallback);
-  }, [lastClicked]);
- */
+  useEffect(() => {
+    if (!links.find(obj => obj.path === location.pathname)) {
+      if (lastClicked) lastClicked.style.transform = "scaleX(0)";
+      setLastClicked(null);
+    }
+  }, [location]);
+
   return (
     <ul className={className}>
       {links.map((link, i) => (
-        <li key={i} onClick={linkOnClick}>
-          <Link to={link.path}>
+        <li key={i}>
+          <Link to={link.path} onClick={linkOnClick}>
             <FontAwesomeIcon
               icon={link.icon}
               style={{ marginRight: "0.5rem" }}

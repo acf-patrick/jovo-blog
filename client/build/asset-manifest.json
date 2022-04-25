@@ -1,23 +1,29 @@
 {
   "files": {
-    "main.css": "/static/css/main.a26fa27c.chunk.css",
-    "main.js": "/static/js/main.57d84ff4.chunk.js",
-    "main.js.map": "/static/js/main.57d84ff4.chunk.js.map",
+    "main.css": "/static/css/main.87e00c66.chunk.css",
+    "main.js": "/static/js/main.6af85071.chunk.js",
+    "main.js.map": "/static/js/main.6af85071.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.2d852aa2.js",
     "runtime-main.js.map": "/static/js/runtime-main.2d852aa2.js.map",
-    "static/js/2.bdbf1984.chunk.js": "/static/js/2.bdbf1984.chunk.js",
-    "static/js/2.bdbf1984.chunk.js.map": "/static/js/2.bdbf1984.chunk.js.map",
+    "static/js/2.19245020.chunk.js": "/static/js/2.19245020.chunk.js",
+    "static/js/2.19245020.chunk.js.map": "/static/js/2.19245020.chunk.js.map",
     "index.html": "/index.html",
-    "static/css/main.a26fa27c.chunk.css.map": "/static/css/main.a26fa27c.chunk.css.map",
-    "static/js/2.bdbf1984.chunk.js.LICENSE.txt": "/static/js/2.bdbf1984.chunk.js.LICENSE.txt",
-    "static/media/NotFound.css": "/static/media/404 Page Not Found _Monochromatic.9f0c5b0e.svg",
-    "static/media/index.css": "/static/media/Roboto-Medium.7429a63c.ttf",
-    "static/media/Home.css": "/static/media/undraw_hello_re_3evm.04beb8e4.svg"
+    "static/css/main.87e00c66.chunk.css.map": "/static/css/main.87e00c66.chunk.css.map",
+    "static/js/2.19245020.chunk.js.LICENSE.txt": "/static/js/2.19245020.chunk.js.LICENSE.txt",
+    "static/media/1534129544.2244fcee.svg": "/static/media/1534129544.2244fcee.svg",
+    "static/media/404 Page Not Found _Monochromatic.9f0c5b0e.svg": "/static/media/404 Page Not Found _Monochromatic.9f0c5b0e.svg",
+    "static/media/index.css": "/static/media/Ubuntu-Regular.fbdecfce.ttf",
+    "static/media/Home.css": "/static/media/UbuntuMono-Regular.9fa7d55c.ttf",
+    "static/media/icons8-facebook.0bfb9716.svg": "/static/media/icons8-facebook.0bfb9716.svg",
+    "static/media/Login.css": "/static/media/undraw_code_thinking_re_gka2.8c24bd0f.svg",
+    "static/media/undraw_hello_re_3evm.04beb8e4.svg": "/static/media/undraw_hello_re_3evm.04beb8e4.svg",
+    "static/media/undraw_launching_re_tomg.c00c6f85.svg": "/static/media/undraw_launching_re_tomg.c00c6f85.svg",
+    "static/media/vecteezy_jt-logo-monogram-with-slash-style-design-template_.c8b30a89.png": "/static/media/vecteezy_jt-logo-monogram-with-slash-style-design-template_.c8b30a89.png"
   },
   "entrypoints": [
     "static/js/runtime-main.2d852aa2.js",
-    "static/js/2.bdbf1984.chunk.js",
-    "static/css/main.a26fa27c.chunk.css",
-    "static/js/main.57d84ff4.chunk.js"
+    "static/js/2.19245020.chunk.js",
+    "static/css/main.87e00c66.chunk.css",
+    "static/js/main.6af85071.chunk.js"
   ]
 }

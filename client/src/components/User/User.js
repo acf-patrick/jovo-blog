@@ -1,15 +1,25 @@
-import { Routes, Route } from "react-router-dom";
-import ConnectionGate from "../Gates/connection";
+import { Routes, Route, useSearchParams } from "react-router-dom";
 import Create from "../Create/Create";
 import UserProfile from "./Profile";
+import ConnectionGate from "../Gates/connection";
+
+const routes = [
+  { path: "/profile", element: <UserProfile /> },
+  { path: "/write", element: <Create /> },
+  { path: "*", element: <p>Are you lost?</p> },
+];
 
 const User = () => {
-  return (
+  const [params] = useSearchParams();
+
+  return params.get("name") ? (
+    <UserProfile name={params.get("name")} />
+  ) : (
     <ConnectionGate>
       <Routes>
-        <Route path="/write" element={<Create />} />
-        <Route path="/profile" element={<UserProfile />} />
-        <Route path="*" element={<p>Are you lost?</p>} />
+        {routes.map((route, index) => (
+          <Route path={route.path} element={route.element} key={index} />
+        ))}
       </Routes>
     </ConnectionGate>
   );

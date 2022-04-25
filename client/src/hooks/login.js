@@ -23,7 +23,10 @@ const useLogin = () => {
         // authentified
         if (data.username) {
           if (data.password) {
-            setConnectedUser({ name: username, id: data.userID });
+          // Clean data
+            delete data.username;
+            delete data.password;
+            setConnectedUser(data);
             navigate("/user/profile");
           } else err("password");
         } else err("username");

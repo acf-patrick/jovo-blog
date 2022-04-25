@@ -125,9 +125,13 @@
   div {
     width: 32px;
     height: 32px;
-    background: black;
     border: solid 3px grey;
     border-radius: 50px;
+    overflow: hidden;
+  }
+
+  .circle {
+    background: black;
   }
 
   svg {
@@ -146,6 +150,13 @@
     transform: scaleY(0);
     transform-origin: top;
     transition: transform 300ms ease-out;
+
+    svg {
+      margin-right: 0.5rem;
+      path {
+        color: #bc776c;
+      }
+    }
 
     a {
       color: white;
@@ -167,7 +178,7 @@
   }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 840px) {
   .sidebar {
     display: flex;
     flex-direction: column;

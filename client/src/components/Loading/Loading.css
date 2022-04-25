@@ -29,6 +29,7 @@
 }
 
 .loading-wrapper {
+  z-index: 10;
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.267);
@@ -65,22 +66,22 @@
 }
 
 .loading .dots div:nth-child(1) {
+  -webkit-animation: wave 600ms ease-out 0ms infinite alternate;
+          animation: wave 600ms ease-out 0ms infinite alternate;
+}
+
+.loading .dots div:nth-child(2) {
   -webkit-animation: wave 600ms ease-out 200ms infinite alternate;
           animation: wave 600ms ease-out 200ms infinite alternate;
 }
 
-.loading .dots div:nth-child(2) {
+.loading .dots div:nth-child(3) {
   -webkit-animation: wave 600ms ease-out 400ms infinite alternate;
           animation: wave 600ms ease-out 400ms infinite alternate;
 }
 
-.loading .dots div:nth-child(3) {
+.loading .dots div:nth-child(4) {
   -webkit-animation: wave 600ms ease-out 600ms infinite alternate;
           animation: wave 600ms ease-out 600ms infinite alternate;
-}
-
-.loading .dots div:nth-child(4) {
-  -webkit-animation: wave 600ms ease-out 800ms infinite alternate;
-          animation: wave 600ms ease-out 800ms infinite alternate;
 }
 /*# sourceMappingURL=Loading.css.map */

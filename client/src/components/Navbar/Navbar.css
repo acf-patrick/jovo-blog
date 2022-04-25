@@ -170,9 +170,13 @@
 .user-profile div {
   width: 32px;
   height: 32px;
-  background: black;
   border: solid 3px grey;
   border-radius: 50px;
+  overflow: hidden;
+}
+
+.user-profile .circle {
+  background: black;
 }
 
 .user-profile svg {
@@ -207,6 +211,14 @@
   transition: transform 300ms ease-out, -webkit-transform 300ms ease-out;
 }
 
+.user-profile-dropdown svg {
+  margin-right: 0.5rem;
+}
+
+.user-profile-dropdown svg path {
+  color: #bc776c;
+}
+
 .user-profile-dropdown a {
   color: white;
   padding: 1rem;
@@ -226,7 +238,7 @@
   }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 840px) {
   .sidebar {
     display: -webkit-box;
     display: -ms-flexbox;

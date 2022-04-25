@@ -26,6 +26,7 @@ const userSchema = new mongoose.Schema({
       message: "{VALUE} already used",
     },
   },
+  profilePicture: String,
   password: String,
   blogs: Array
 });
