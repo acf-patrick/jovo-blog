@@ -8,14 +8,13 @@ const router = express.Router();
 router.post("/", (req, res) => {
   const user = req.body;
 
-  new User({
+  User.create({
     name: user.name,
     email: user.email,
     password: encrypt(user.password),
     profilePicture: "image/profile/octocat.svg",
   })
-    .save()
-    .then((result) => {
+    .then(() => {
       res.sendStatus(200);
     })
     .catch((err) => {

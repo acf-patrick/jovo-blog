@@ -20,9 +20,9 @@ const Home = () => {
     <div className="home">
       <div className="head">
         <div className="left">
-          <h1>Welcome fellow <span style={{color: "#5a5a5a"}}>Jovo</span>!</h1>
+          <h1>A warm welcome for the <span style={{color: "#5a5a5a"}}>new guy</span>!</h1>
           <p className="intro">
-            <span style={{ marginRight: "1rem" }}>What inspires ya today ?</span>
+            <span style={{ marginRight: "1rem" }}>What inspires you today ?</span>
             <FontAwesomeIcon icon={faMugHot} />
           </p>
           {!isPending && (

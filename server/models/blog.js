@@ -8,7 +8,6 @@ const blogSchema = new mongoose.Schema({
   tags: [String],
 });
 
-module.exports = {
-  Blog: mongoose.model("blog", blogSchema),
-  blogSchema: blogSchema,
-};
+const Blog = mongoose.model("blog", blogSchema);
+
+module.exports = Blog;
