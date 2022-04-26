@@ -1,18 +1,32 @@
-@-webkit-keyframes create-appear {
+@-webkit-keyframes create__form {
   0% {
     opacity: 0;
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
-    /* transform: translateY(-15px); */
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
   }
 }
 
-@keyframes create-appear {
+@keyframes create__form {
   0% {
     opacity: 0;
-    -webkit-transform: scale(0.8);
-            transform: scale(0.8);
-    /* transform: translateY(-15px); */
+    -webkit-transform: translateY(-15px);
+            transform: translateY(-15px);
+  }
+}
+
+@-webkit-keyframes create__header {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-15px);
+            transform: translateX(-15px);
+  }
+}
+
+@keyframes create__header {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateX(-15px);
+            transform: translateX(-15px);
   }
 }
 
@@ -26,6 +40,8 @@
   font-weight: normal;
   font-size: 1.5rem;
   margin-bottom: 1rem;
+  -webkit-animation: create__header 700ms ease-out;
+          animation: create__header 700ms ease-out;
 }
 
 .create label {
@@ -61,6 +77,8 @@
 
 .create form {
   padding-left: 1rem;
+  -webkit-animation: create__form 500ms ease-out 700ms backwards;
+          animation: create__form 500ms ease-out 700ms backwards;
 }
 
 .create form > div {

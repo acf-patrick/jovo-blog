@@ -4,6 +4,8 @@ import "./Create.css";
 import ConnectionGate from "../Gates/connection";
 import Tag from "./Tag";
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenFancy } from "@fortawesome/free-solid-svg-icons";
 
 const Create = () => {
   const navigate = useNavigate();
@@ -57,7 +59,9 @@ const Create = () => {
         style={{ animation: "create-appear 700ms ease-out" }}
       >
         <Square />
-        <h1>Write a new blog</h1>
+        <h1>
+          Write a new blog <FontAwesomeIcon icon={faPenFancy} />
+        </h1>
         <form onSubmit={onSubmit}>
           <div className="title">
             <label htmlFor="#title">Blog title</label>
@@ -79,7 +83,7 @@ const Create = () => {
               type="text"
               name="tags"
               onKeyDown={addTag}
-              placeholder="Add tag"
+              placeholder="Add tags"
             />
           </div>
           <div className="body">

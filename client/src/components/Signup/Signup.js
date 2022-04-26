@@ -3,7 +3,7 @@ import {
   faArrowRight,
   faTriangleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import illustration from "../../assets/images/undraw_launching_re_tomg.svg";
 import google from "../../assets/images/1534129544.svg";
