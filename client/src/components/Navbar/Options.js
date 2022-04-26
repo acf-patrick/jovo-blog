@@ -56,11 +56,11 @@ const Options = ({ className = "" }) => {
   };
 
   useEffect(() => {
-    if (!links.find(obj => obj.path === location.pathname)) {
+    if (!links.find((obj) => obj.path === location.pathname)) {
       if (lastClicked) lastClicked.style.transform = "scaleX(0)";
       setLastClicked(null);
     }
-  }, [location]);
+  }, [location, lastClicked]);
 
   return (
     <ul className={className}>

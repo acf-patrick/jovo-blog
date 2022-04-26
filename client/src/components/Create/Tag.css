@@ -1,0 +1,23 @@
+.tag-preview {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #c9c9c9;
+}
+
+.tag-preview span {
+  color: #262626;
+}
+
+.tag-preview .text {
+  padding: 0.5rem 1rem;
+}
+
+.tag-preview .xmark {
+  padding: 0.5rem;
+  border-left: 1px dotted #066163;
+}
+/*# sourceMappingURL=Tag.css.map */

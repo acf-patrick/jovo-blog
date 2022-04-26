@@ -28,12 +28,12 @@
   margin-bottom: 1rem;
 }
 
-.create p {
-  margin-bottom: 1rem;
+.create label {
+  display: inline-block;
+  margin-bottom: 0.5rem;
 }
 
 .create input {
-  margin-top: 0.5rem;
   padding-left: 0.5rem;
   height: 1.5rem;
 }
@@ -55,13 +55,16 @@
 }
 
 .create textarea {
-  margin-top: 0.5rem;
   width: 100%;
-  max-width: 40rem;
+  max-width: 30rem;
 }
 
 .create form {
   padding-left: 1rem;
+}
+
+.create form > div {
+  margin-bottom: 1rem;
 }
 
 .create .body {
@@ -79,5 +82,29 @@
 
 .create .submit button {
   padding: 0.5rem 1rem;
+}
+
+.create .tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+}
+
+.create .tags input {
+  border: none;
+  display: block;
+  width: 7rem;
+  position: relative;
+  border-radius: 5px;
+}
+
+.create .tags input:focus {
+  outline: black dotted 1px;
 }
 /*# sourceMappingURL=Create.css.map */

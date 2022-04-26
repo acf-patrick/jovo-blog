@@ -7,7 +7,8 @@ const useLogin = () => {
   const { setConnectedUser } = useContext(ConnectedUser);
   const navigate = useNavigate();
 
-  return (username, password, err) =>
+  return (username, password, err) => {
+    if (!err) err = () => {};
     fetch(config.backendURL + "/login", {
       method: "POST",
       body: JSON.stringify({
@@ -23,10 +24,10 @@ const useLogin = () => {
         // authentified
         if (data.username) {
           if (data.password) {
-          // Clean data
+            // Clean data
             delete data.username;
             delete data.password;
-            setConnectedUser(data);
+            setConnectedUser(data.user);
             navigate("/user/profile");
           } else err("password");
         } else err("username");
@@ -34,6 +35,7 @@ const useLogin = () => {
       .catch((err) => {
         console.log(err.message);
       });
+  };
 };
 
 export default useLogin;

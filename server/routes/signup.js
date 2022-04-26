@@ -1,7 +1,7 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
 const encrypt = require("../encrypt");
-const User = require("../models/user");
+const { User } = require("../models/user");
 
 const router = express.Router();
 
@@ -12,14 +12,18 @@ router.post("/", (req, res) => {
     name: user.name,
     email: user.email,
     password: encrypt(user.password),
-    profilePicture: "octocat.svg"
+    profilePicture: "image/profile/octocat.svg",
   })
     .save()
-    .then(() => {
+    .then((result) => {
       res.sendStatus(200);
     })
     .catch((err) => {
-      res.send(err);
+      const [name, email] = [err.errors.name, err.errors.email];
+      res.send({
+        name: name ? name.message : "",
+        email: email ? email.message : "",
+      });
     });
 });
 

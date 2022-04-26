@@ -1,5 +1,4 @@
 const { default: mongoose } = require("mongoose");
-const { blogSchema } = require("../models/blog");
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -27,10 +26,31 @@ const userSchema = new mongoose.Schema({
     },
   },
   profilePicture: String,
+  coverPicture: String,
   password: String,
-  blogs: Array
+  quote: String,
+  blogIDs: [String],
 });
 
 const User = mongoose.model("user", userSchema);
 
-module.exports = User;
+const getUser = async (info) => {
+  const { name, id } = info;
+  let result;
+
+  if (name) result = await User.findOne({ name: name });
+  else if (id) result = await User.findById(id);
+  if (result) {
+    const ret = {
+      id: result._id,
+      ...result._doc,
+    };
+    delete ret.__v;
+    delete ret._id;
+    // delete ret.password;
+    return ret;
+  }
+  return null;
+};
+
+module.exports = { User, getUser };

@@ -3,24 +3,24 @@ import {
   faArrowRight,
   faTriangleExclamation,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import illustration from "../../assets/images/undraw_launching_re_tomg.svg";
 import google from "../../assets/images/1534129544.svg";
 import facebook from "../../assets/images/icons8-facebook.svg";
+import config from "../../config";
 
 import "./Signup.css";
+import useLogin from "../../hooks/login";
 
 const Signup = () => {
-  const [errMessage, setErrMessage] = useState({
-    name: "",
-    email: "",
-  });
+  const [errMessage, setErrMessage] = useState(null);
+  const login = useLogin();
 
   const formOnSubmit = (event) => {
     event.preventDefault();
     const form = event.currentTarget;
-    fetch("http://localhost:5000/signup", {
+    fetch(config.backendURL + "/signup", {
       method: "POST",
       body: JSON.stringify({
         name: form.name.value,
@@ -32,20 +32,15 @@ const Signup = () => {
       },
     })
       .then((result) => result.json())
-      .then((result) => {
-        let message = {};
-        for (let key of ["name", "email"]) {
-          let error = result.errors[key];
-          message[key] = error ? error.message : "";
-        }
-        setErrMessage(message);
+      .then((data) => {
+        setErrMessage(data);
       })
       .catch((err) => {
-        setErrMessage({
-          name: "",
-          email: "",
+        setErrMessage(null);
+        console.log(err);
+        login(form.name.value, form.password.value, (e) => {
+          console.log(e);
         });
-        console.log(err.message);
       });
   };
 
@@ -63,7 +58,7 @@ const Signup = () => {
               <br />
               <input type="text" name="name" id="name" required />
               <br />
-              {errMessage.name && (
+              {errMessage?.name && (
                 <p className="errMessage">
                   {errMessage.name}
                   <FontAwesomeIcon
@@ -92,7 +87,7 @@ const Signup = () => {
                   />
                 </div>
               </div>
-              {errMessage.email && (
+              {errMessage?.email && (
                 <p className="errMessage">
                   {errMessage.email}
                   <FontAwesomeIcon

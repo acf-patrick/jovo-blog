@@ -1,6 +1,5 @@
 import ConnectedUser from "../../context/user";
 import { useContext } from "react";
-import ConnectionGate from "../Gates/connection";
 // import Loading from "../Loading/Loading";
 
 const UserProfile = ({ name = "" }) => {

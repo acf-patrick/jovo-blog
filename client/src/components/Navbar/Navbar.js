@@ -99,7 +99,7 @@ const Navbar = () => {
             <div className="user-profile" onClick={toggleDropdown}>
               {connectedUser.profilePicture ? (
                 <div>
-                  <img src={config.backendURL + connectedUser.profilePicture} alt="" width="32" height="32" />
+                  <img src={config.backendURL + '/' + connectedUser.profilePicture} alt="" width="32" height="32" />
                 </div>
               ) : (
                 <div className="circle"></div>
@@ -114,7 +114,7 @@ const Navbar = () => {
             </Link>
             <Link to="/signup" className="signup">
               Sign up
-            </Link>
+            </Link> 
           </div>
         )}
       </nav>

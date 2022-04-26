@@ -9,7 +9,7 @@ export default function Square({
 }) {
   const sideMin = (5 * side) / 6;
 
-  return (
+  return false && (
     <div
       style={{
         width: 0,

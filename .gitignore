@@ -3,7 +3,7 @@
 *.css.map
 
 .eslintcache
-config.env
+*.env
 
 # dependencies
 node_modules/

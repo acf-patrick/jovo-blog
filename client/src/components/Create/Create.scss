@@ -17,12 +17,12 @@
     margin-bottom: 1rem;
   }
 
-  p {
-    margin-bottom: 1rem;
+  label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
   }
 
   input {
-    margin-top: 0.5rem;
     padding-left: 0.5rem;
     height: 1.5rem;
 
@@ -32,13 +32,16 @@
   }
 
   textarea {
-    margin-top: 0.5rem;
     width: 100%;
-    max-width: 40rem;
+    max-width: 30rem;
   }
 
   form {
     padding-left: 1rem;
+
+    > div {
+      margin-bottom: 1rem;
+    }
   }
 
   .body {
@@ -51,6 +54,25 @@
 
     button {
       padding: 0.5rem 1rem;
+    }
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+
+    input {
+      border: none;
+      display: block;
+      width: 7rem;
+      position: relative;
+      border-radius: 5px;
+
+      &:focus {
+        outline: black dotted 1px;
+      }
     }
   }
 }
