@@ -12,7 +12,6 @@ const userSchema = new mongoose.Schema({
       },
       message: "{VALUE} already used",
     },
-    required: true,
   },
   email: {
     type: String,
@@ -25,16 +24,15 @@ const userSchema = new mongoose.Schema({
       },
       message: "{VALUE} already used",
     },
-    required: true,
   },
   profilePicture: String,
   coverPicture: String,
-  password: { type: String, required: true },
+  password: String,
   quote: String,
   blogIDs: [String],
 });
 
-userSchema.set('validateBeforeSave', false);
+// userSchema.set('validateBeforeSave', false);
 const User = mongoose.model("user", userSchema);
 
 const getUser = async (info) => {

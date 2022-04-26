@@ -1,29 +1,35 @@
 import useFetch from "../../hooks/fetch";
-import BlogList from "../BlogList/BlogList";
 import "./Blogs.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import BlogPreview from "../BlogPreview/BlogPreview";
 
-const Blogs = () => {
+const Blogs = ({ header, provider }) => {
   const {
     datas: blogs,
     setDatas: setBlogs,
     isPending,
     error,
-  } = useFetch("http://localhost:3001/blogs");
+  } = useFetch(provider);
 
-  const removeBlog = (id) => {
-    setBlogs(blogs.filter((blog) => blog.id !== id));
+  const removeBlog = (blogIndex) => {
+    setBlogs(blogs.filter((blog, index) => index !== blogIndex));
+  };
+
+  const blogOnClick = (blogIndex) => (e) => {
+    let fadeDuration = 500;
+    let elt = e.currentTarget;
+    elt.style.animation = "";
+    setTimeout(() => {
+      elt.style.animation = `fade ${fadeDuration}ms ease-out forwards`;
+      setTimeout(() => {
+        removeBlog(blogIndex);
+      }, fadeDuration);
+    }, 0);
   };
 
   return (
-    <div
-      style={{
-        width: "75%",
-        margin: "auto",
-        padding: '1rem'
-      }}
-    >
+    <>
       {isPending && (
         <div className="loading">
           <span>Loading blogs</span>
@@ -31,11 +37,12 @@ const Blogs = () => {
         </div>
       )}
       {blogs && (
-        <BlogList
-          blogs={blogs}
-          title={blogs.length ? "Top blogs!" : "No blog found"}
-          removeBlog={removeBlog}
-        />
+        <div className="blogs">
+          <h1>{header}</h1>
+          {blogs.map((blog, index) => (
+            <BlogPreview blog={blog} key={index} onClick={blogOnClick(index)} />
+          ))}
+        </div>
       )}
       {error && (
         <p
@@ -47,7 +54,7 @@ const Blogs = () => {
           {error}
         </p>
       )}
-    </div>
+    </>
   );
 };
 

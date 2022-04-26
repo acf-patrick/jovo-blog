@@ -36,7 +36,15 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/signin" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/blogs" element={<Blogs />} />
+              <Route
+                path="/blogs"
+                element={
+                  <Blogs
+                    header="Star what Interest you"
+                    provider="http://foo.com"
+                  />
+                }
+              />
               <Route path="/user/*" element={<User />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
