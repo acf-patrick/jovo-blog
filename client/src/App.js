@@ -17,6 +17,7 @@ function App() {
     return newValue;
   }, null);
 
+  // fetch user
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const user = sessionStorage.connectedUser;
@@ -41,7 +42,7 @@ function App() {
                 element={
                   <Blogs
                     header="Star what Interest you"
-                    provider="http://foo.com"
+                    provider="http://localhost:4000/blogs"
                   />
                 }
               />

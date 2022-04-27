@@ -2,15 +2,27 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import "./BlogPreview.css";
 
-const BlogPreview = ({ blog, onClick, key }) => {
+const BlogPreview = ({ blog, remove, index }) => {
+  const removeBlog = (e) => {
+    let fadeDuration = 500;
+    let elt = e.currentTarget;
+    elt.style.animation = "";
+    setTimeout(() => {
+      elt.style.animation = `blog-fade ${fadeDuration}ms ease-out`;
+      setTimeout(() => {
+        remove();
+      }, fadeDuration);
+    }, 0);
+  };
+
+  const onClick = removeBlog;
+
   return (
     <div
       className="blog-preview"
       style={{
-        animation: `appear 600ms ease-out ${key * 300}ms backwards`,
+        animation: `blog-appear 600ms ease-out ${index * 300}ms backwards`,
       }}
-      key={blog.id}
-      id={blog.id}
       onClick={onClick}
     >
       <h1 className="title">{blog.title}</h1>

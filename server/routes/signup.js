@@ -19,7 +19,7 @@ router.post("/", (req, res) => {
     })
     .catch((err) => {
       const [name, email] = [err.errors.name, err.errors.email];
-      res.send({
+      res.json({
         name: name ? name.message : "",
         email: email ? email.message : "",
       });

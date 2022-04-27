@@ -1,6 +1,18 @@
+@keyframes blog-appear {
+  0% {
+    opacity: 0;
+  }
+}
+
+@keyframes blog-fade {
+  100% {
+    opacity: 0;
+    transform: translateX(15px);
+  }
+}
+
 .blog-preview {
   color: #707070;
-  margin-top: 2rem;
   padding: 1rem 1rem;
   border: 1px solid #f0f0f0;
   border-radius: 5px;
@@ -8,7 +20,7 @@
   background: #fafafa;
 
   &:hover {
-    box-shadow: 0px 5px 5px #949494;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.192);
     transform: translateY(-5px);
   }
 

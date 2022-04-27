@@ -35,8 +35,11 @@ const userSchema = new mongoose.Schema({
 // userSchema.set('validateBeforeSave', false);
 const User = mongoose.model("user", userSchema);
 
-const getUser = async (info) => {
-  const { name, id } = info;
+/**
+ * Query user using its name or ID.
+ * ID will take priority to the name parameter
+ */
+const getUser = async ({ name, id }) => {
   let result;
 
   if (name) result = await User.findOne({ name: name });

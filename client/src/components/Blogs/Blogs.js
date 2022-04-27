@@ -1,7 +1,8 @@
-import useFetch from "../../hooks/fetch";
 import "./Blogs.css";
+import useFetch from "../../hooks/fetch";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { faSpinner, faMeh } from "@fortawesome/free-solid-svg-icons";
+import oops from "../../assets/images/778e294a406890bc49c93886dc2e5f2e.gif";
 import BlogPreview from "../BlogPreview/BlogPreview";
 
 const Blogs = ({ header, provider }) => {
@@ -16,18 +17,6 @@ const Blogs = ({ header, provider }) => {
     setBlogs(blogs.filter((blog, index) => index !== blogIndex));
   };
 
-  const blogOnClick = (blogIndex) => (e) => {
-    let fadeDuration = 500;
-    let elt = e.currentTarget;
-    elt.style.animation = "";
-    setTimeout(() => {
-      elt.style.animation = `fade ${fadeDuration}ms ease-out forwards`;
-      setTimeout(() => {
-        removeBlog(blogIndex);
-      }, fadeDuration);
-    }, 0);
-  };
-
   return (
     <>
       {isPending && (
@@ -36,23 +25,42 @@ const Blogs = ({ header, provider }) => {
           <FontAwesomeIcon icon={faSpinner} spin />
         </div>
       )}
+      {error && (
+        <>
+          <p className="blog-loading-error">
+            Oops! Error occures while loading blogs
+          </p>
+          <p style={{ maxWidth: "480px", margin: "auto" }}>
+            <img
+              src={oops}
+              alt="oops"
+              style={{ width: "100%", height: "auto", borderRadius: "5px" }}
+            />
+          </p>
+        </>
+      )}
       {blogs && (
         <div className="blogs">
-          <h1>{header}</h1>
-          {blogs.map((blog, index) => (
-            <BlogPreview blog={blog} key={index} onClick={blogOnClick(index)} />
-          ))}
+          <h1>
+            {blogs.length ? (
+              header
+            ) : (
+              <>
+                No Blog found <FontAwesomeIcon icon={faMeh} />
+              </>
+            )}
+          </h1>
+          <div className="content">
+            {blogs.map((blog, index) => (
+              <BlogPreview
+                blog={blog}
+                key={index}
+                index={index}
+                remove={() => removeBlog(index)}
+              />
+            ))}
+          </div>
         </div>
-      )}
-      {error && (
-        <p
-          style={{
-            color: "red",
-            fontSize: "1.5rem",
-          }}
-        >
-          {error}
-        </p>
       )}
     </>
   );

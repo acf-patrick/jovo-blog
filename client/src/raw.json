@@ -1,0 +1,25 @@
+{
+  "blogs": [
+    {
+      "author": "Figma",
+      "title": "Design Creation",
+      "body": "Lorem Ipsum",
+      "star": 0,
+      "tags": ["Design"]
+    },
+    {
+      "author": "Facebook",
+      "title": "React Hooks",
+      "body": "Lorem Ipsum",
+      "star": 0,
+      "tags": ["React", "Hooks"]
+    },
+    {
+      "author": "Twitter",
+      "title": "Style your work",
+      "body": "Lorem Ipsum",
+      "star": 0,
+      "tags": ["CSS", "Bootsrap", "Stylesheet"]
+    }
+  ]
+}

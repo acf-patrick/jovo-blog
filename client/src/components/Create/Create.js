@@ -9,7 +9,6 @@ import config from "../../config";
 import ConnectedUser from "../../context/user";
 
 const Create = () => {
-  const navigate = useNavigate();
   const [tags, setTags] = useState([]);
   const { connectedUser } = useContext(ConnectedUser);
 
@@ -57,12 +56,7 @@ const Create = () => {
       <h1>
         Write a new blog <FontAwesomeIcon icon={faPenFancy} />
       </h1>
-      <form
-        onSubmit={onSubmit}
-        onKeyDown={(event) => {
-          if (event.key === "Enter") event.preventDefault();
-        }}
-      >
+      <form onSubmit={onSubmit}>
         <div className="title">
           <label htmlFor="#title">Blog title</label>
           <br />
@@ -95,7 +89,7 @@ const Create = () => {
         <div className="body">
           <label htmlFor="#body">What inspires you today?</label>
           <br />
-          <textarea name="body" id="body" rows="10"></textarea>
+          <textarea name="body" id="body" rows="10" required></textarea>
         </div>
         <div className="submit">
           <button type="submit">Create</button>

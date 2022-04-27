@@ -5,6 +5,12 @@ const Blog = require("../models/blog");
 
 router
   .route("/")
+  .get((req, res) => {
+    const title = req.query.title;
+    Blog.find({ title: title })
+      .then((doc) => res.json(doc))
+      .catch((err) => res.json(err));
+  })
   .post((req, res) => {
     const blog = new Blog(req.body);
     blog
@@ -19,9 +25,16 @@ router
         console.log(err);
         res.send(err.message);
       });
-  })
-  .get((req, res) => {
-    res.send(req.body);
   });
+
+router
+  .route("/:id")
+  .get((req, res) => {
+    Blog.findById(req.params.id).then((blog) => {
+      if (blog) res.json(blog);
+      else res.sendStatus(404);
+    });
+  })
+  .put((req, res) => {});
 
 module.exports = router;
